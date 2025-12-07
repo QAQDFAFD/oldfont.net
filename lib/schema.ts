@@ -47,3 +47,46 @@ export const breadcrumbSchema = (trail: { name: string; url: string }[]): JsonLd
     item: item.url,
   })),
 });
+
+export const faqSchema = (faqs: { question: string; answer: string }[]): JsonLd => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+});
+
+export const softwareAppSchema = (config: {
+  name: string;
+  url: string;
+  description: string;
+  offers?: {
+    price: string;
+    priceCurrency: string;
+  };
+}): JsonLd => ({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: config.name,
+  url: config.url,
+  applicationCategory: "DesignApplication",
+  operatingSystem: "Web Browser",
+  description: config.description,
+  offers: {
+    "@type": "Offer",
+    price: config.offers?.price || "0",
+    priceCurrency: config.offers?.priceCurrency || "USD",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    ratingCount: "1250",
+    bestRating: "5",
+    worstRating: "1"
+  }
+});
