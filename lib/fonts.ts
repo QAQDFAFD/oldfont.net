@@ -3,13 +3,14 @@ import {
   Cormorant_Garamond,
   Cinzel_Decorative,
   UnifrakturCook,
+  UnifrakturMaguntia,
+  Fruktur,
   Special_Elite,
   MedievalSharp,
   Pirata_One,
-  IM_Fell_DW_Pica,
-  Almendra_SC
+  Almendra_SC,
+  Goudy_Bookletter_1911
 } from 'next/font/google'
-import localFont from 'next/font/local'
 
 export const bodyFont = Inter({
   subsets: ['latin'],
@@ -34,17 +35,22 @@ export const blackletterFont = UnifrakturCook({
   variable: '--font-blackletter'
 })
 
+export const maguntiaFont = UnifrakturMaguntia({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-maguntia'
+})
+
+export const frakturFont = Fruktur({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-fruktur'
+})
+
 export const typewriterFont = Special_Elite({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-typewriter'
-})
-
-export const heritageScript = localFont({
-  src: '../public/fonts/HeritageScript.otf',
-  variable: '--font-heritage',
-  fallback: ['Georgia', 'serif'],
-  display: 'swap'
 })
 
 export const medievalFont = MedievalSharp({
@@ -59,17 +65,16 @@ export const pirataFont = Pirata_One({
   variable: '--font-pirata'
 })
 
-export const fellEnglishFont = IM_Fell_DW_Pica({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-fell',
-  display: 'swap'
-})
-
 export const almendraFont = Almendra_SC({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-almendra'
+})
+
+export const goudyFont = Goudy_Bookletter_1911({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-goudy'
 })
 
 export type FontOption = {
@@ -83,12 +88,13 @@ export const fontOptions: FontOption[] = [
   { id: 'cormorant', label: 'Elegant Serif (Cormorant)', fontFamily: 'var(--font-display), serif' },
   { id: 'cinzel', label: 'Vintage Caps (Cinzel Decorative)', fontFamily: 'var(--font-gothic), serif' },
   { id: 'unifraktur', label: 'Old English (UnifrakturCook)', fontFamily: 'var(--font-blackletter), cursive' },
+  { id: 'maguntia', label: 'Classic Blackletter (UnifrakturMaguntia)', fontFamily: 'var(--font-maguntia), cursive' },
+  { id: 'fruktur', label: 'Decorative Fraktur', fontFamily: 'var(--font-fruktur), cursive' },
   { id: 'medieval', label: 'Medieval Sharp', fontFamily: 'var(--font-medieval), cursive' },
   { id: 'pirata', label: 'Pirata One (Gothic)', fontFamily: 'var(--font-pirata), cursive' },
-  { id: 'fell', label: 'IM Fell DW Pica (Classic)', fontFamily: 'var(--font-fell), serif' },
   { id: 'almendra', label: 'Almendra SC (Vintage)', fontFamily: 'var(--font-almendra), serif' },
-  { id: 'typewriter', label: 'Typewriter (Special Elite)', fontFamily: 'var(--font-typewriter), monospace' },
-  { id: 'heritage', label: 'Heritage Script', fontFamily: 'var(--font-heritage), serif' }
+  { id: 'goudy', label: 'Goudy Bookletter 1911 (Heritage Serif)', fontFamily: 'var(--font-goudy), serif' },
+  { id: 'typewriter', label: 'Typewriter (Special Elite)', fontFamily: 'var(--font-typewriter), monospace' }
 ]
 
 export const fontVariables = [
@@ -96,10 +102,11 @@ export const fontVariables = [
   displayFont.variable,
   gothicFont.variable,
   blackletterFont.variable,
+  maguntiaFont.variable,
+  frakturFont.variable,
   typewriterFont.variable,
-  heritageScript.variable,
   medievalFont.variable,
   pirataFont.variable,
-  fellEnglishFont.variable,
-  almendraFont.variable
+  almendraFont.variable,
+  goudyFont.variable
 ].join(' ')

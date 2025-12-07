@@ -41,18 +41,28 @@ export default function OldFontGeneratorPage() {
         <p className='text-sm font-semibold uppercase tracking-wide text-brass'>{primaryKeyword}</p>
         <h1 className='text-3xl font-semibold text-ink'>Old Font Generator – Vintage & Classic Style Text</h1>
         <p className='text-lg text-gray-700'>
-          Craft elegant vintage lettering with this {primaryKeyword}. Preview heritage scripts, classic serifs, gothic,
+          Craft elegant vintage lettering with this {primaryKeyword}. Preview ornate scripts, classic serifs, gothic,
           and old English fonts, then copy your text or HTML for invitations, branding, and elegant designs.
         </p>
       </div>
 
       <FontGeneratorTool
         pageTitle='Old Font Generator'
-        pageDescription='Preview heritage scripts, elegant serifs, and vintage fonts for all occasions.'
+        pageDescription='Preview ornate scripts, elegant serifs, and vintage fonts for all occasions.'
         primaryKeyword={primaryKeyword}
         secondaryKeywords={secondaryKeywords}
-        defaultFontId='fell'
-        allowedFontIds={['fell', 'almendra', 'heritage', 'cormorant', 'cinzel', 'unifraktur', 'medieval']}
+        defaultFontId='almendra'
+        allowedFontIds={[
+          'almendra',
+          'cormorant',
+          'cinzel',
+          'unifraktur',
+          'maguntia',
+          'fraktur',
+          'goudy',
+          'medieval',
+          'pirata'
+        ]}
       />
 
       <section className='prose prose-stone max-w-none space-y-6 text-gray-800'>

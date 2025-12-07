@@ -110,14 +110,14 @@ export const almendraFont = Almendra_SC({
 ```tsx
 // Old Font Generator
 <FontGeneratorTool
-  defaultFontId="fell"  // 新的默认字体
-  allowedFontIds={["fell", "almendra", "heritage", "cormorant", "cinzel", "unifraktur", "medieval"]}
+  defaultFontId="almendra"  // 新的默认字体
+  allowedFontIds={["almendra", "cormorant", "cinzel", "unifraktur", "maguntia", "fraktur", "goudy", "medieval", "pirata"]}
 />
 
 // Old English Font Generator
 <FontGeneratorTool
   defaultFontId="unifraktur"
-  allowedFontIds={["unifraktur", "medieval", "pirata", "cinzel", "fell", "heritage"]}
+  allowedFontIds={["unifraktur", "maguntia", "fraktur", "medieval", "pirata", "cinzel", "almendra"]}
 />
 ```
 
@@ -138,11 +138,10 @@ export const almendraFont = Almendra_SC({
 | Cinzel Decorative      | 装饰大写   | Google Fonts | 原有   |
 | UnifrakturCook         | 老英文黑体 | Google Fonts | 原有   |
 | Special Elite          | 打字机     | Google Fonts | 原有   |
-| Heritage Script        | 手写体     | 本地字体     | 原有   |
 | **Medieval Sharp**     | 中世纪     | Google Fonts | 🆕 新增 |
 | **Pirata One**         | 哥特海盗   | Google Fonts | 🆕 新增 |
-| **IM Fell English SC** | 经典英式   | Google Fonts | 🆕 新增 |
 | **Almendra SC**        | 复古优雅   | Google Fonts | 🆕 新增 |
+| **Goudy Bookletter**   | 经典衬线   | Google Fonts | 🆕 新增 |
 
 ### 🚀 下一步计划
 

@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import type { Route } from "next";
 import { usePathname } from "next/navigation";
 import Container from "./Container";
 
-const navLinks = [
+const navLinks: { href: Route; label: string; featured?: boolean }[] = [
   { href: "/", label: "Home" },
   { href: "/old-font-generator", label: "Old Font Generator", featured: true },
   { href: "/old-english-font-generator", label: "Old English" },
