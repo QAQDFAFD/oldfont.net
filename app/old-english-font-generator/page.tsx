@@ -53,7 +53,8 @@ export default function OldEnglishFontGeneratorPage() {
           'medieval',
           'pirata',
           'cinzel',
-          'almendra'
+          'fell',
+          'heritage'
         ]}
       />
 

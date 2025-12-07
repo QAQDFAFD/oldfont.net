@@ -51,9 +51,11 @@ export default function OldFontGeneratorPage() {
         pageDescription='Preview ornate scripts, elegant serifs, and vintage fonts for all occasions.'
         primaryKeyword={primaryKeyword}
         secondaryKeywords={secondaryKeywords}
-        defaultFontId='almendra'
+        defaultFontId='fell'
         allowedFontIds={[
+          'fell',
           'almendra',
+          'heritage',
           'cormorant',
           'cinzel',
           'unifraktur',

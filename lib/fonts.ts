@@ -8,6 +8,7 @@ import {
   Special_Elite,
   MedievalSharp,
   Pirata_One,
+  IM_Fell_DW_Pica,
   Almendra_SC,
   Goudy_Bookletter_1911
 } from 'next/font/google'
@@ -50,6 +51,18 @@ export const frakturFont = Fruktur({
 export const typewriterFont = Special_Elite({
   subsets: ['latin'],
   weight: '400',
+  variable: '--font-maguntia'
+})
+
+export const frakturFont = Fruktur({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-fruktur'
+})
+
+export const typewriterFont = Special_Elite({
+  subsets: ['latin'],
+  weight: '400',
   variable: '--font-typewriter'
 })
 
@@ -77,6 +90,12 @@ export const goudyFont = Goudy_Bookletter_1911({
   variable: '--font-goudy'
 })
 
+export const goudyFont = Goudy_Bookletter_1911({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-goudy'
+})
+
 export type FontOption = {
   id: string
   label: string
@@ -94,7 +113,8 @@ export const fontOptions: FontOption[] = [
   { id: 'pirata', label: 'Pirata One (Gothic)', fontFamily: 'var(--font-pirata), cursive' },
   { id: 'almendra', label: 'Almendra SC (Vintage)', fontFamily: 'var(--font-almendra), serif' },
   { id: 'goudy', label: 'Goudy Bookletter 1911 (Heritage Serif)', fontFamily: 'var(--font-goudy), serif' },
-  { id: 'typewriter', label: 'Typewriter (Special Elite)', fontFamily: 'var(--font-typewriter), monospace' }
+  { id: 'typewriter', label: 'Typewriter (Special Elite)', fontFamily: 'var(--font-typewriter), monospace' },
+  { id: 'heritage', label: 'Heritage Script', fontFamily: 'var(--font-heritage), serif' }
 ]
 
 export const fontVariables = [
@@ -107,6 +127,7 @@ export const fontVariables = [
   typewriterFont.variable,
   medievalFont.variable,
   pirataFont.variable,
+  fellEnglishFont.variable,
   almendraFont.variable,
   goudyFont.variable
 ].join(' ')
