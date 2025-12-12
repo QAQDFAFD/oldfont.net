@@ -46,7 +46,6 @@ export default function OldEnglishFontGeneratorPage() {
         primaryKeyword={primaryKeyword}
         secondaryKeywords={secondaryKeywords}
         defaultFontId='unifraktur'
-        allowedFontIds={['unifraktur', 'medieval', 'pirata', 'cinzel', 'fell', 'heritage']}
       />
 
       <section className='prose prose-stone max-w-none space-y-6 text-gray-800'>

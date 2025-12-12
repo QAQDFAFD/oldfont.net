@@ -52,7 +52,6 @@ export default function OldFontGeneratorPage() {
         primaryKeyword={primaryKeyword}
         secondaryKeywords={secondaryKeywords}
         defaultFontId='fell'
-        allowedFontIds={['fell', 'almendra', 'heritage', 'cormorant', 'cinzel', 'unifraktur', 'medieval']}
       />
 
       <section className='prose prose-stone max-w-none space-y-6 text-gray-800'>

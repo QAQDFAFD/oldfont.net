@@ -47,29 +47,35 @@ export default function FontControls({
   availableFonts
 }: FontControlsProps) {
   return (
-    <div className='rounded-lg border border-brass/30 bg-white p-4 shadow-soft'>
-      <div className='flex items-start justify-between gap-4'>
-        <div>
+    <div className='rounded-lg border border-brass/30 bg-white p-3 shadow-soft sm:p-4'>
+      {/* Header - 移动端优化 */}
+      <div className='flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4'>
+        <div className='min-w-0 flex-1'>
           <p className='text-sm font-semibold text-ink'>{pageTitle}</p>
           <p className='text-xs text-gray-600'>{pageDescription}</p>
         </div>
-        <span className='rounded-full bg-parchment px-3 py-1 text-[11px] uppercase tracking-wide text-gray-600'>
+        <span className='hidden rounded-full bg-parchment px-3 py-1 text-[11px] uppercase tracking-wide text-gray-600 sm:inline-block'>
           {primaryKeyword}
         </span>
       </div>
 
       <div className='mt-4 space-y-4'>
-        <label className='block text-sm font-medium text-ink' htmlFor='text-input'>
-          Your text
-        </label>
-        <Textarea
-          id='text-input'
-          aria-label={`${primaryKeyword} input`}
-          value={text}
-          onChange={event => setText(event.target.value)}
-          rows={4}
-        />
-        <div className='grid gap-4 sm:grid-cols-2'>
+        <div className='space-y-2'>
+          <label className='block text-sm font-medium text-ink' htmlFor='text-input'>
+            Your text
+          </label>
+          <Textarea
+            id='text-input'
+            aria-label={`${primaryKeyword} input`}
+            value={text}
+            onChange={event => setText(event.target.value)}
+            rows={3}
+            className='text-base'
+          />
+        </div>
+
+        {/* 字体选择和大小 - 移动端堆叠 */}
+        <div className='grid gap-3 sm:grid-cols-2 sm:gap-4'>
           <div className='space-y-2'>
             <label className='block text-sm font-medium text-ink' htmlFor='font-select'>
               Choose font
@@ -78,7 +84,8 @@ export default function FontControls({
               id='font-select'
               value={fontId}
               onChange={event => setFontId(event.target.value)}
-              aria-label='Select old font'>
+              aria-label='Select old font'
+              className='text-base'>
               {availableFonts.map(option => (
                 <option key={option.id} value={option.id} style={{ fontFamily: option.fontFamily }}>
                   {option.label}
@@ -97,9 +104,12 @@ export default function FontControls({
               max={120}
               value={fontSize}
               onChange={event => setFontSize(Number(event.target.value))}
+              className='text-base'
             />
           </div>
         </div>
+
+        {/* 行高滑块 */}
         <div className='space-y-2'>
           <label className='block text-sm font-medium text-ink' htmlFor='line-height'>
             Line height
@@ -112,36 +122,57 @@ export default function FontControls({
             step={0.05}
             value={lineHeight}
             onChange={event => setLineHeight(Number(event.target.value))}
-            className='w-full accent-brass'
+            className='h-2 w-full cursor-pointer accent-brass'
           />
           <p className='text-xs text-gray-600'>Current: {lineHeight.toFixed(2)}</p>
         </div>
-        <div className='space-y-2'>
-          <div className='flex flex-wrap gap-3'>
-            <Button type='button' onClick={onExportPng} aria-label='Export as PNG' disabled={isExporting}>
+
+        {/* 操作按钮 - 移动端优化 */}
+        <div className='space-y-3'>
+          <div className='grid grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-3'>
+            <Button
+              type='button'
+              onClick={onExportPng}
+              aria-label='Export as PNG'
+              disabled={isExporting}
+              className='w-full justify-center sm:w-auto'>
               {isExporting ? 'Exporting...' : '📸 Export PNG'}
             </Button>
-            <Button type='button' onClick={onCopyHtml} variant='secondary' aria-label='Copy HTML'>
-              Copy HTML
-            </Button>
-            <Button type='button' onClick={onCopyText} variant='secondary' aria-label='Copy text'>
-              Copy Text
-            </Button>
+            <div className='grid grid-cols-2 gap-2 sm:flex sm:gap-3'>
+              <Button
+                type='button'
+                onClick={onCopyHtml}
+                variant='secondary'
+                aria-label='Copy HTML'
+                className='w-full justify-center sm:w-auto'>
+                Copy HTML
+              </Button>
+              <Button
+                type='button'
+                onClick={onCopyText}
+                variant='secondary'
+                aria-label='Copy text'
+                className='w-full justify-center sm:w-auto'>
+                Copy Text
+              </Button>
+            </div>
           </div>
-          <p className='text-xs text-gray-600'>
-            💡 <strong>Export PNG</strong> for images · <strong>Copy HTML</strong> for websites · Copy Text for plain
-            text only
+          <p className='text-center text-xs text-gray-600 sm:text-left'>
+            💡 <strong>Export PNG</strong> for images · <strong>Copy HTML</strong> for websites
           </p>
         </div>
+
+        {/* 预览设置信息 */}
         <div className='rounded-md bg-parchment/50 p-3 text-xs text-gray-700'>
           <p className='font-semibold text-ink'>Preview settings</p>
-          <p>Font: {selectedFont.label}</p>
+          <p className='break-words'>Font: {selectedFont.label}</p>
           <p>
             Size: {fontSize}px · Line height: {lineHeight.toFixed(2)}
           </p>
         </div>
+
         {secondaryKeywords?.length ? (
-          <p className='text-xs text-gray-600'>Related: {secondaryKeywords.join(', ')}</p>
+          <p className='hidden text-xs text-gray-600 sm:block'>Related: {secondaryKeywords.join(', ')}</p>
         ) : null}
       </div>
     </div>

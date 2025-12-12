@@ -47,7 +47,6 @@ export default function TypewriterFontGeneratorPage() {
         primaryKeyword={primaryKeyword}
         secondaryKeywords={secondaryKeywords}
         defaultFontId='typewriter'
-        allowedFontIds={['typewriter', 'inter', 'cormorant']}
       />
 
       <section className='prose prose-stone max-w-none space-y-6 text-gray-800'>
