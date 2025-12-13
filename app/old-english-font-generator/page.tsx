@@ -83,9 +83,7 @@ export default function OldEnglishFontGeneratorPage() {
         </p>
       </section>
 
-      <script type='application/ld+json' suppressHydrationWarning>
-        {JSON.stringify(schema)}
-      </script>
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </main>
   )
 }

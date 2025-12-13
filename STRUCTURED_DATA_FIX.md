@@ -10,9 +10,10 @@ Google Search Console 报错:
 
 ## 🔍 根本原因
 
-根据 [Google 的文档](https://support.google.com/webmasters/answer/9166415#error_types),问题出在 JSON-LD 结构化数据的格式上。
+根据 [Google 的文档](https://support.google.com/webmasters/answer/9166415#error_types),问题有**两个**:
 
-**错误的做法** ❌:
+### 问题 1: 数组格式错误 ❌
+
 ```javascript
 const schema = [
   websiteSchema(),
@@ -28,9 +29,22 @@ const schema = [
 
 这会导致 Google 无法正确解析,因为顶层是一个**数组**而不是对象。
 
+### 问题 2: HTML 实体编码 ❌
+
+```jsx
+<script type='application/ld+json'>
+  {JSON.stringify(schema)}
+</script>
+
+// React 会自动转义,输出为:
+{&quot;@context&quot;:&quot;https://schema.org&quot;...}
+```
+
+这会导致 JSON 无法被正确解析,因为 `&quot;` 不是有效的 JSON 语法。
+
 ## ✅ 解决方案
 
-使用 `@graph` 属性包装多个结构化数据对象:
+### 修复 1: 使用 `@graph` 包装
 
 ```javascript
 const schema = {
@@ -41,8 +55,17 @@ const schema = {
     breadcrumbSchema([...])
   ]
 }
+```
 
-// 正确输出
+### 修复 2: 使用 `dangerouslySetInnerHTML` 避免 HTML 转义
+
+```jsx
+<script
+  type='application/ld+json'
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+/>
+
+// 正确输出 (纯 JSON,无 HTML 实体)
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
