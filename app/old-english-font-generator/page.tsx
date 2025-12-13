@@ -17,17 +17,20 @@ export const generateMetadata = (): Metadata =>
   })
 
 export default function OldEnglishFontGeneratorPage() {
-  const schema = [
-    applicationSchema({
-      name: 'Old English Font Generator – Copy & Paste',
-      url,
-      description: 'Type gothic and blackletter text online with adjustable size and spacing, then copy instantly.'
-    }),
-    breadcrumbSchema([
-      { name: 'Home', url: 'https://oldfont.net/' },
-      { name: 'Old English Font Generator', url }
-    ])
-  ]
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      applicationSchema({
+        name: 'Old English Font Generator – Copy & Paste',
+        url,
+        description: 'Type gothic and blackletter text online with adjustable size and spacing, then copy instantly.'
+      }),
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://oldfont.net/' },
+        { name: 'Old English Font Generator', url }
+      ])
+    ]
+  }
 
   return (
     <main className='space-y-10 pb-16'>

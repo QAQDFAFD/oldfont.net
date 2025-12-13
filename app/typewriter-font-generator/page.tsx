@@ -17,18 +17,21 @@ export const generateMetadata = (): Metadata =>
   })
 
 export default function TypewriterFontGeneratorPage() {
-  const schema = [
-    applicationSchema({
-      name: 'Typewriter Font Generator – Retro Text',
-      url,
-      description:
-        'Preview and copy typewriter-style monospaced text for retro designs, captions, and code-inspired branding.'
-    }),
-    breadcrumbSchema([
-      { name: 'Home', url: 'https://oldfont.net/' },
-      { name: 'Typewriter Font Generator', url }
-    ])
-  ]
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      applicationSchema({
+        name: 'Typewriter Font Generator – Retro Text',
+        url,
+        description:
+          'Preview and copy typewriter-style monospaced text for retro designs, captions, and code-inspired branding.'
+      }),
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://oldfont.net/' },
+        { name: 'Typewriter Font Generator', url }
+      ])
+    ]
+  }
 
   return (
     <main className='space-y-10 pb-16'>

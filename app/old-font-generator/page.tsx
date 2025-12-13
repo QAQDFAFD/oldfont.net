@@ -22,18 +22,21 @@ export const generateMetadata = (): Metadata =>
   })
 
 export default function OldFontGeneratorPage() {
-  const schema = [
-    applicationSchema({
-      name: 'Old Font Generator – Old English & Vintage Fonts',
-      url,
-      description:
-        'Generate Old English, gothic, and vintage style text online. Customize font size and line height, then copy or export instantly.'
-    }),
-    breadcrumbSchema([
-      { name: 'Home', url: 'https://oldfont.net/' },
-      { name: 'Old Font Generator', url }
-    ])
-  ]
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      applicationSchema({
+        name: 'Old Font Generator – Old English & Vintage Fonts',
+        url,
+        description:
+          'Generate Old English, gothic, and vintage style text online. Customize font size and line height, then copy or export instantly.'
+      }),
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://oldfont.net/' },
+        { name: 'Old Font Generator', url }
+      ])
+    ]
+  }
 
   return (
     <main className='space-y-10 pb-16'>

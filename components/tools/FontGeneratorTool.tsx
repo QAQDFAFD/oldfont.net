@@ -5,6 +5,7 @@ import { toPng } from 'html-to-image'
 import FontPreview from './FontPreview'
 import FontControls from './FontControls'
 import { fontOptions, FontOption } from '@/lib/fonts'
+import { convertToUnicode, getUnicodeStyleForFont } from '@/lib/unicode-converter'
 
 export type FontGeneratorToolProps = {
   pageTitle: string
@@ -54,14 +55,22 @@ export default function FontGeneratorTool({
     [fontId, availableFonts]
   )
 
-  const copyText = useCallback(() => {
-    navigator.clipboard.writeText(text)
-  }, [text])
-
   const copyHtml = useCallback(() => {
     const html = `<span style="font-family: ${selectedFont.fontFamily}; font-size: ${fontSize}px; line-height: ${lineHeight};">${text}</span>`
     navigator.clipboard.writeText(html)
   }, [fontSize, lineHeight, selectedFont.fontFamily, text])
+
+  const copyUnicode = useCallback(() => {
+    const unicodeStyle = getUnicodeStyleForFont(fontId)
+    if (unicodeStyle) {
+      const unicodeText = convertToUnicode(text, unicodeStyle)
+      navigator.clipboard.writeText(unicodeText)
+    } else {
+      // 如果没有对应的 Unicode 样式,使用默认的 fraktur-bold
+      const unicodeText = convertToUnicode(text, 'fraktur-bold')
+      navigator.clipboard.writeText(unicodeText)
+    }
+  }, [text, fontId])
 
   const exportToPng = useCallback(async () => {
     if (!previewRef.current) return
@@ -102,8 +111,8 @@ export default function FontGeneratorTool({
         secondaryKeywords={secondaryKeywords}
         pageTitle={pageTitle}
         pageDescription={pageDescription}
-        onCopyText={copyText}
         onCopyHtml={copyHtml}
+        onCopyUnicode={copyUnicode}
         onExportPng={exportToPng}
         isExporting={isExporting}
         selectedFont={selectedFont}

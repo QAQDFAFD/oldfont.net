@@ -43,12 +43,15 @@ const faqs = [
 ]
 
 export default function HomePage() {
-  const schema = [
-    websiteSchema(),
-    organizationSchema(),
-    breadcrumbSchema([{ name: 'Home', url: 'https://oldfont.net/' }]),
-    faqSchema(faqs)
-  ]
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      websiteSchema(),
+      organizationSchema(),
+      breadcrumbSchema([{ name: 'Home', url: 'https://oldfont.net/' }]),
+      faqSchema(faqs)
+    ]
+  }
 
   return (
     <div className='space-y-16 pb-16'>
