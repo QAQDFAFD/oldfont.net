@@ -5,7 +5,6 @@ import { toPng } from 'html-to-image'
 import FontPreview from './FontPreview'
 import FontControls from './FontControls'
 import { fontOptions, FontOption } from '@/lib/fonts'
-import { convertToUnicode, getUnicodeStyleForFont } from '@/lib/unicode-converter'
 
 export type FontGeneratorToolProps = {
   pageTitle: string
@@ -60,18 +59,6 @@ export default function FontGeneratorTool({
     navigator.clipboard.writeText(html)
   }, [fontSize, lineHeight, selectedFont.fontFamily, text])
 
-  const copyUnicode = useCallback(() => {
-    const unicodeStyle = getUnicodeStyleForFont(fontId)
-    if (unicodeStyle) {
-      const unicodeText = convertToUnicode(text, unicodeStyle)
-      navigator.clipboard.writeText(unicodeText)
-    } else {
-      // 如果没有对应的 Unicode 样式,使用默认的 fraktur-bold
-      const unicodeText = convertToUnicode(text, 'fraktur-bold')
-      navigator.clipboard.writeText(unicodeText)
-    }
-  }, [text, fontId])
-
   const exportToPng = useCallback(async () => {
     if (!previewRef.current) return
 
@@ -112,7 +99,6 @@ export default function FontGeneratorTool({
         pageTitle={pageTitle}
         pageDescription={pageDescription}
         onCopyHtml={copyHtml}
-        onCopyUnicode={copyUnicode}
         onExportPng={exportToPng}
         isExporting={isExporting}
         selectedFont={selectedFont}

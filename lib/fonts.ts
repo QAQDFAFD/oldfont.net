@@ -40,10 +40,17 @@ export const typewriterFont = Special_Elite({
   variable: '--font-typewriter'
 })
 
-export const heritageScript = localFont({
-  src: '../public/fonts/HeritageScript.otf',
-  variable: '--font-heritage',
-  fallback: ['Georgia', 'serif'],
+export const oldEnglishishFont = localFont({
+  src: '../public/fonts/OldEnglishish-Regular.ttf',
+  variable: '--font-old-englishish',
+  fallback: ['serif'],
+  display: 'swap'
+})
+
+export const unifrakturMaguntiaFont = localFont({
+  src: '../public/fonts/OldEnglish-Charset-UnifrakturMaguntia.ttf',
+  variable: '--font-unifraktur-maguntia',
+  fallback: ['cursive'],
   display: 'swap'
 })
 
@@ -87,8 +94,7 @@ export const fontOptions: FontOption[] = [
   { id: 'pirata', label: 'Pirata One (Gothic)', fontFamily: 'var(--font-pirata), cursive' },
   { id: 'fell', label: 'IM Fell DW Pica (Classic)', fontFamily: 'var(--font-fell), serif' },
   { id: 'almendra', label: 'Almendra SC (Vintage)', fontFamily: 'var(--font-almendra), serif' },
-  { id: 'typewriter', label: 'Typewriter (Special Elite)', fontFamily: 'var(--font-typewriter), monospace' },
-  { id: 'heritage', label: 'Heritage Script', fontFamily: 'var(--font-heritage), serif' }
+  { id: 'typewriter', label: 'Typewriter (Special Elite)', fontFamily: 'var(--font-typewriter), monospace' }
 ]
 
 export const fontVariables = [
@@ -97,9 +103,10 @@ export const fontVariables = [
   gothicFont.variable,
   blackletterFont.variable,
   typewriterFont.variable,
-  heritageScript.variable,
   medievalFont.variable,
   pirataFont.variable,
   fellEnglishFont.variable,
-  almendraFont.variable
+  almendraFont.variable,
+  oldEnglishishFont.variable,
+  unifrakturMaguntiaFont.variable
 ].join(' ')

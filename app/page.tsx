@@ -122,6 +122,12 @@ export default function HomePage() {
               title: 'Typewriter Generator',
               desc: 'Retro mechanical fonts for nostalgic vibes',
               emoji: '⌨️'
+            },
+            {
+              href: '/free-old-fonts-download',
+              title: 'Free Font Downloads',
+              desc: 'Download gothic & vintage fonts in TTF/OTF format',
+              emoji: '📥'
             }
           ].map(tool => (
             <a
@@ -205,10 +211,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </div>
   )
 }

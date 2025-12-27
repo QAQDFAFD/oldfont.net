@@ -19,7 +19,6 @@ export type FontControlsProps = {
   pageTitle: string
   pageDescription: string
   onCopyHtml: () => void
-  onCopyUnicode?: () => void
   onExportPng: () => void
   isExporting: boolean
   selectedFont: FontOption
@@ -40,7 +39,6 @@ export default function FontControls({
   pageTitle,
   pageDescription,
   onCopyHtml,
-  onCopyUnicode,
   onExportPng,
   isExporting,
   selectedFont,
@@ -138,31 +136,17 @@ export default function FontControls({
               className='w-full justify-center sm:w-auto'>
               {isExporting ? 'Exporting...' : '📸 Export PNG'}
             </Button>
-            <div className='grid grid-cols-2 gap-2 sm:flex sm:gap-3'>
-              {onCopyUnicode && (
-                <Button
-                  type='button'
-                  onClick={onCopyUnicode}
-                  variant='secondary'
-                  aria-label='Copy Unicode text (works on social media)'
-                  className='w-full justify-center sm:w-auto'
-                  title='Copy as Unicode - works on Twitter, Facebook, Instagram, etc.'>
-                  ✨ Copy Unicode
-                </Button>
-              )}
-              <Button
-                type='button'
-                onClick={onCopyHtml}
-                variant='secondary'
-                aria-label='Copy HTML'
-                className='w-full justify-center sm:w-auto'>
-                📋 Copy HTML
-              </Button>
-            </div>
+            <Button
+              type='button'
+              onClick={onCopyHtml}
+              variant='secondary'
+              aria-label='Copy HTML'
+              className='w-full justify-center sm:w-auto'>
+              📋 Copy HTML
+            </Button>
           </div>
           <p className='text-center text-xs text-gray-600 sm:text-left'>
-            💡 <strong>Copy Unicode</strong> for social media · <strong>Export PNG</strong> for images ·{' '}
-            <strong>Copy HTML</strong> for websites
+            💡 <strong>Export PNG</strong> for images · <strong>Copy HTML</strong> for websites
           </p>
         </div>
 
