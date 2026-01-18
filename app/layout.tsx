@@ -13,9 +13,13 @@ export const metadata: Metadata = {
     template: '%s | OldFont.net'
   },
   description:
-    'Free online old font generator with 40+ fonts. Create old English, gothic, vintage, medieval, and typewriter text instantly. Export as PNG or copy HTML. No download required!',
+    'Free online old font generator with 40+ fonts. Create old English, gothic, vintage, medieval, and typewriter text instantly. Export as PNG or copy HTML. The easiest old fonts online - simple, fast, no download required.',
   keywords: [
     'old font generator',
+    'old fonts online',
+    'old fonts generator',
+    'old style font generator',
+    'old font easy',
     'old english font generator',
     'old english font text generator copy and paste',
     'old english generator font',
@@ -25,6 +29,9 @@ export const metadata: Metadata = {
     'typewriter font generator',
     'blackletter font generator',
     'medieval font generator',
+    'antique font generator',
+    'old school font generator',
+    'old times font',
     'free font generator',
     'online font generator',
     'free old fonts download',
@@ -35,7 +42,6 @@ export const metadata: Metadata = {
     'old english text generator',
     'old english font download',
     'free gothic fonts',
-    'antique font generator',
     'western font generator',
     'wood type font generator',
     'display font generator',

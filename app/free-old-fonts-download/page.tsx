@@ -4,32 +4,33 @@ import { breadcrumbSchema, faqSchema, fontCollectionSchema, howToSchema } from '
 
 const url = 'https://oldfont.net/free-old-fonts-download'
 const primaryKeyword = 'free old fonts download'
+const secondaryKeywords = [
+  'antique font generator',
+  'old english font download',
+  'gothic font free download',
+  'blackletter font ttf',
+  'vintage font download',
+  'medieval font free',
+  'old style font download',
+  'free gothic fonts',
+  'antique fonts download',
+  'free old english fonts',
+  'free blackletter fonts',
+  'free medieval fonts',
+  'free vintage fonts',
+  'free gothic fonts ttf',
+  'google fonts download',
+  'free serif fonts download',
+  'free display fonts download'
+]
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Free Old Fonts Download – Gothic, Vintage, Medieval & Blackletter TTF/OTF',
+    title: 'Free Antique Fonts Download – Gothic, Vintage, Medieval & Blackletter TTF/OTF',
     description:
-      'Download 40+ free old English, gothic, vintage, medieval, and blackletter fonts. High-quality TTF & OTF files from Google Fonts. Perfect for design, tattoos, logos, and print. No registration required, instant download.',
+      'Download 40+ free antique fonts including old English, gothic, vintage, medieval, and blackletter styles. High-quality TTF & OTF files from Google Fonts. Perfect antique font generator for design, tattoos, logos, and print. No registration required, instant download.',
     url,
-    keywords: [
-      primaryKeyword,
-      'old english font download',
-      'gothic font free download',
-      'blackletter font ttf',
-      'vintage font download',
-      'medieval font free',
-      'old style font download',
-      'free gothic fonts',
-      'antique fonts download',
-      'free old english fonts',
-      'free blackletter fonts',
-      'free medieval fonts',
-      'free vintage fonts',
-      'free gothic fonts ttf',
-      'google fonts download',
-      'free serif fonts download',
-      'free display fonts download'
-    ]
+    keywords: [primaryKeyword, ...secondaryKeywords]
   })
 
 // 字体数据配置

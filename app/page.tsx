@@ -3,26 +3,30 @@ import FontGeneratorTool from '@/components/tools/FontGeneratorTool'
 import { breadcrumbSchema, organizationSchema, websiteSchema, faqSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Free Old Font Generator – 40+ Vintage, Gothic & Medieval Fonts Online',
+  title: 'Old Font Generator & Old Fonts Online – 40+ Free Vintage & Gothic Fonts',
   description:
-    'Create stunning old English, gothic, vintage, medieval & typewriter fonts instantly. 40+ fonts, PNG export, copy HTML. Perfect for logos, social media & tattoos. 100% free!',
+    'The easiest old font generator online. Create old English, gothic, vintage, medieval & typewriter fonts instantly. 40+ free old fonts online. Type, preview, copy or export as PNG. Perfect for logos, social media & tattoos. 100% free!',
   keywords: [
     'old font generator',
+    'old fonts online',
+    'old fonts generator',
+    'old style font generator',
+    'old font easy',
     'old english font generator',
     'vintage font generator',
     'gothic font generator',
-    'free font generator',
-    'online font generator',
+    'typewriter font generator',
     'blackletter font',
     'medieval font generator',
-    'free old fonts download',
+    'antique font generator',
+    'olde english font generator',
+    'free font generator',
+    'free old fonts',
+    'online font generator',
     'gothic text generator',
     'blackletter text generator',
     'vintage text generator',
     'medieval text generator',
-    'old english text generator',
-    'free gothic fonts',
-    'antique font generator',
     'western font generator',
     'wood type font generator'
   ],
@@ -34,6 +38,24 @@ export const metadata: Metadata = {
 const heroCta = [
   { href: '/old-font-generator', label: 'Use Old Font Generator' },
   { href: '/old-english-font-generator', label: 'Old English Generator' }
+]
+
+const fontFeatures = [
+  {
+    title: 'Old School Font Generator',
+    desc: 'Authentic old school fonts for retro and nostalgic designs. Perfect for vintage branding and themed projects.',
+    link: '/old-font-generator'
+  },
+  {
+    title: 'Old Times Font Styles',
+    desc: 'Classic serif fonts inspired by traditional typography. Elegant, readable, and timeless for professional designs.',
+    link: '/old-font-generator'
+  },
+  {
+    title: 'Antique Font Generator',
+    desc: 'Beautiful antique and vintage fonts for elegant, old-fashioned designs. Perfect for wedding invitations and formal documents.',
+    link: '/free-old-fonts-download'
+  }
 ]
 
 const faqs = [
@@ -53,6 +75,18 @@ const faqs = [
   {
     question: 'How many fonts are available?',
     answer: 'OldFont.net offers 40+ free fonts including old English, gothic, vintage, medieval, blackletter, and typewriter styles from Google Fonts and curated collections.'
+  },
+  {
+    question: 'Is this an old font easy to use?',
+    answer: 'Yes! OldFont.net is the easiest old font generator online. Simply type, choose your font, adjust settings, and copy or export. No registration or downloads required.'
+  },
+  {
+    question: 'Do you have old school font generator options?',
+    answer: 'Absolutely! Our old font generator includes old school font generator styles perfect for retro projects, nostalgic branding, and themed designs.'
+  },
+  {
+    question: 'Can I find antique font generator options?',
+    answer: 'Yes! Our free old fonts download section offers 20+ antique font generator options including vintage serifs, classic displays, and old-style typefaces.'
   }
 ]
 
@@ -73,11 +107,11 @@ export default function HomePage() {
       <section className='space-y-6 text-center'>
         <p className='text-sm font-semibold uppercase tracking-wide text-brass'>Vintage typography made easy</p>
         <h1 className='text-4xl font-semibold leading-tight text-ink md:text-5xl lg:text-6xl'>
-          Old Font Generator & Old English Text Online
+          Old Font Generator & Old Fonts Online – 40+ Free Fonts
         </h1>
         <p className='mx-auto max-w-2xl text-lg text-gray-700 md:text-xl'>
-          Transform ordinary words into old English, gothic, vintage, and typewriter-style lettering. Type once, preview
-          instantly, and copy your stylized text.
+          The easiest old font generator online. Transform ordinary words into old English, gothic, vintage, and typewriter-style lettering.
+          Type once, preview instantly, and copy your stylized text. No download required, completely free.
         </p>
         <div className='flex flex-wrap justify-center gap-4'>
           {heroCta.map(cta => (
@@ -98,10 +132,9 @@ export default function HomePage() {
             title: '40+ Old Fonts',
             desc: 'Choose from blackletter, gothic, vintage, medieval, typewriter, and classic English fonts from Google Fonts.'
           },
-          { title: 'Instant Preview', desc: 'See your text transform in real-time as you type and adjust settings.' },
+          { title: 'Old Fonts Online', desc: 'The easiest old fonts online generator. No installation, no registration, just type and create.' },
           {
-            title: 'Copy & Paste Ready',
-            desc: 'One-click copy for text or HTML. Works everywhere—social media, websites, and more.'
+            title: 'Old Font Easy', desc: 'Simple, fast, and free old font generator. Type, preview, and copy in seconds.'
           }
         ].map(feature => (
           <div key={feature.title} className='rounded-xl border border-brass/30 bg-white p-6 shadow-soft'>
@@ -109,6 +142,45 @@ export default function HomePage() {
             <p className='mt-3 text-gray-700'>{feature.desc}</p>
           </div>
         ))}
+      </section>
+
+      {/* Why Use Old Font Generator */}
+      <section className='rounded-2xl border border-brass/30 bg-gradient-to-br from-parchment/30 to-white p-8 md:p-12'>
+        <div className='mx-auto max-w-3xl space-y-8'>
+          <div className='text-center'>
+            <h2 className='text-3xl font-semibold text-ink'>Why Use Our Old Font Generator?</h2>
+            <p className='mt-4 text-lg text-gray-700'>
+              OldFont.net is the most user-friendly old fonts online generator. Whether you need an old style font generator for
+              wedding invitations, a gothic font generator for gaming channels, or an antique font generator for vintage
+              branding, we have you covered.
+            </p>
+          </div>
+
+          <div className='grid gap-6 md:grid-cols-2'>
+            <div className='space-y-3'>
+              <h3 className='text-xl font-semibold text-ink'>🎨 40+ Font Styles</h3>
+              <ul className='space-y-2 text-gray-700'>
+                <li>• <strong>Old English</strong> - Unifraktur, MedievalSharp, Pirata One</li>
+                <li>• <strong>Gothic</strong> - Blackletter, Texturina, Germania One</li>
+                <li>• <strong>Vintage</strong> - Cormorant Garamond, Almendra, IM Fell</li>
+                <li>• <strong>Typewriter</strong> - Special Elite, monospaced fonts</li>
+                <li>• <strong>Medieval</strong> - Uncial Antiqua, Grenze Gotisch</li>
+              </ul>
+            </div>
+
+            <div className='space-y-3'>
+              <h3 className='text-xl font-semibold text-ink'>✨ Perfect For</h3>
+              <ul className='space-y-2 text-gray-700'>
+                <li>• Social media bios & posts</li>
+                <li>• Logos & branding</li>
+                <li>• Tattoo designs & mockups</li>
+                <li>• Certificates & invitations</li>
+                <li>• Gaming & entertainment</li>
+                <li>• Retro website design</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Popular Tools */}
@@ -156,6 +228,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Font Categories */}
+      <section className='space-y-8'>
+        <div className='text-center'>
+          <h2 className='text-3xl font-semibold text-ink'>Popular Font Styles</h2>
+          <p className='mt-2 text-gray-600'>Explore our most requested font categories</p>
+        </div>
+        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          {fontFeatures.map(feature => (
+            <a
+              key={feature.title}
+              href={feature.link}
+              className='group rounded-xl border border-brass/30 bg-white p-5 shadow-sm transition hover:border-brass/50 hover:shadow-md'
+            >
+              <h3 className='text-lg font-semibold text-ink group-hover:text-brass'>{feature.title}</h3>
+              <p className='mt-2 text-sm text-gray-600'>{feature.desc}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
       {/* About Section */}
       <section className='rounded-2xl border border-brass/30 bg-gradient-to-br from-parchment/30 to-white p-8 md:p-12'>
         <div className='mx-auto max-w-3xl space-y-8'>
@@ -163,7 +255,7 @@ export default function HomePage() {
             <h2 className='text-3xl font-semibold text-ink'>What Is an Old Font Generator?</h2>
             <p className='mt-4 text-lg text-gray-700'>
               A simple online tool that transforms your text with vintage and blackletter-inspired typefaces—no software
-              installation required.
+              installation required. Our old font easy approach means anyone can create professional vintage text in seconds.
             </p>
           </div>
 
