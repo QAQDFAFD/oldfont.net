@@ -5,13 +5,23 @@ import { applicationSchema, breadcrumbSchema } from '@/lib/schema'
 
 const url = 'https://oldfont.net/old-english-font-generator'
 const primaryKeyword = 'old english font generator'
-const secondaryKeywords = ['old english font text generator copy and paste', 'old english generator font']
+const secondaryKeywords = [
+  'old english font text generator copy and paste',
+  'old english generator font',
+  'gothic font generator',
+  'blackletter font generator',
+  'medieval font generator',
+  'fraktur font generator',
+  'gothic text generator',
+  'blackletter text generator',
+  'ornate font generator'
+]
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Old English Font Generator – Copy & Paste Gothic Text',
+    title: 'Old English Font Generator – Copy & Paste Gothic Blackletter Text',
     description:
-      'Generate Old English and blackletter text online. Type, preview, and copy ornate gothic lettering for social media, tattoos, and logos.',
+      'Free old English font generator with 15+ gothic and blackletter fonts. Create ornate gothic lettering instantly. Type, preview, adjust size, then copy or export as PNG. Perfect for tattoos, logos, certificates, and medieval designs.',
     url,
     keywords: [primaryKeyword, ...secondaryKeywords]
   })

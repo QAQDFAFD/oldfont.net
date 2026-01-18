@@ -9,14 +9,21 @@ const secondaryKeywords = [
   'old english font generator',
   'old english font text generator copy and paste',
   'old english generator font',
-  'olde english font generator'
+  'olde english font generator',
+  'vintage font generator',
+  'gothic font generator',
+  'medieval font generator',
+  'classic serif font generator',
+  'antique font generator',
+  'heritage font generator',
+  'display font generator'
 ]
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Old Font Generator – Old English & Vintage Style Text',
+    title: 'Old Font Generator – Old English, Gothic & Vintage Style Text',
     description:
-      'Use this old font generator to style text in old English, gothic, and vintage lettering. Type, preview, and copy or download in seconds.',
+      'Free old font generator with 20+ classic fonts. Create old English, gothic, vintage, and medieval text instantly. Adjust size, spacing, then copy or export as PNG. Perfect for logos, tattoos, invitations, and designs.',
     url,
     keywords: [primaryKeyword, ...secondaryKeywords]
   })

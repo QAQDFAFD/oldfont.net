@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /_next/
+Disallow: /api/
+
+Crawl-delay: 1
 
 Sitemap: https://oldfont.net/sitemap.xml

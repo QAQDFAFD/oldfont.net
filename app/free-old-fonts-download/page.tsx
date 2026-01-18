@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import { buildToolMetadata } from '@/lib/seo'
-import { breadcrumbSchema, faqSchema } from '@/lib/schema'
+import { breadcrumbSchema, faqSchema, fontCollectionSchema, howToSchema } from '@/lib/schema'
 
 const url = 'https://oldfont.net/free-old-fonts-download'
 const primaryKeyword = 'free old fonts download'
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Free Old Fonts Download – Gothic, Vintage & Blackletter TTF/OTF',
+    title: 'Free Old Fonts Download – Gothic, Vintage, Medieval & Blackletter TTF/OTF',
     description:
-      'Download free old English, gothic, vintage, and blackletter fonts. High-quality TTF & OTF files for design, tattoos, logos, and print. No registration required.',
+      'Download 40+ free old English, gothic, vintage, medieval, and blackletter fonts. High-quality TTF & OTF files from Google Fonts. Perfect for design, tattoos, logos, and print. No registration required, instant download.',
     url,
     keywords: [
       primaryKeyword,
@@ -20,7 +20,15 @@ export const generateMetadata = (): Metadata =>
       'medieval font free',
       'old style font download',
       'free gothic fonts',
-      'antique fonts download'
+      'antique fonts download',
+      'free old english fonts',
+      'free blackletter fonts',
+      'free medieval fonts',
+      'free vintage fonts',
+      'free gothic fonts ttf',
+      'google fonts download',
+      'free serif fonts download',
+      'free display fonts download'
     ]
   })
 
@@ -55,52 +63,235 @@ const downloadableFonts = [
 // Google Fonts 推荐（可在线使用）
 const googleFontsRecommended = [
   {
+    id: 'unifrakturcook',
     name: 'UnifrakturCook',
-    style: 'Blackletter',
+    style: 'Blackletter / Fraktur',
     googleUrl: 'https://fonts.google.com/specimen/UnifrakturCook',
-    description: 'Bold blackletter font perfect for headlines and logos.'
+    description: 'Bold blackletter font perfect for headlines and logos. Based on traditional German Fraktur.',
+    previewText: 'UnifrakturCook',
+    fontFamily: 'var(--font-blackletter), cursive',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
   },
   {
+    id: 'medieval-sharp',
     name: 'MedievalSharp',
     style: 'Medieval',
     googleUrl: 'https://fonts.google.com/specimen/MedievalSharp',
-    description: 'Sharp medieval-style font with great readability.'
+    description: 'Sharp medieval-style font with great readability. Perfect for game titles and fantasy themes.',
+    previewText: 'MedievalSharp',
+    fontFamily: 'var(--font-medieval), cursive',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
   },
   {
+    id: 'pirata-one',
     name: 'Pirata One',
     style: 'Gothic / Pirate',
     googleUrl: 'https://fonts.google.com/specimen/Pirata+One',
-    description: 'Decorative gothic font with a pirate theme.'
+    description: 'Decorative gothic font with a pirate theme. Bold and impactful for headlines.',
+    previewText: 'Pirata One',
+    fontFamily: 'var(--font-pirata), cursive',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
   },
   {
+    id: 'im-fell-dw-pica',
     name: 'IM Fell DW Pica',
     style: 'Classic Serif',
     googleUrl: 'https://fonts.google.com/specimen/IM+Fell+DW+Pica',
-    description: 'Historic typeface based on 17th century printing.'
+    description: 'Historic typeface based on 17th century printing. Authentic vintage character.',
+    previewText: 'IM Fell DW Pica',
+    fontFamily: 'var(--font-fell), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
   },
   {
+    id: 'almendra-sc',
     name: 'Almendra SC',
     style: 'Vintage Serif',
     googleUrl: 'https://fonts.google.com/specimen/Almendra+SC',
-    description: 'Elegant vintage serif with small caps style.'
+    description: 'Elegant vintage serif with small caps style. Great for formal designs.',
+    previewText: 'Almendra SC',
+    fontFamily: 'var(--font-almendra), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
   },
   {
+    id: 'cinzel-decorative',
     name: 'Cinzel Decorative',
-    style: 'Classical',
+    style: 'Classical / Roman',
     googleUrl: 'https://fonts.google.com/specimen/Cinzel+Decorative',
-    description: 'Decorative classical font inspired by Roman inscriptions.'
+    description: 'Decorative classical font inspired by Roman inscriptions. Perfect for titles.',
+    previewText: 'Cinzel Decorative',
+    fontFamily: 'var(--font-gothic), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
   },
   {
+    id: 'special-elite',
     name: 'Special Elite',
     style: 'Typewriter',
     googleUrl: 'https://fonts.google.com/specimen/Special+Elite',
-    description: 'Authentic typewriter font with vintage character.'
+    description: 'Authentic typewriter font with vintage character. Great for retro designs.',
+    previewText: 'Special Elite',
+    fontFamily: 'var(--font-typewriter), monospace',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
   },
   {
+    id: 'cormorant-garamond',
     name: 'Cormorant Garamond',
     style: 'Elegant Serif',
     googleUrl: 'https://fonts.google.com/specimen/Cormorant+Garamond',
-    description: 'Refined serif font perfect for elegant designs.'
+    description: 'Refined serif font perfect for elegant designs. Contemporary take on classic Garamond.',
+    previewText: 'Cormorant',
+    fontFamily: 'var(--font-display), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'texturina',
+    name: 'Texturina',
+    style: 'Blackletter / Gothic',
+    googleUrl: 'https://fonts.google.com/specimen/Texturina',
+    description: 'Modern blackletter font with multiple optical sizes. Versatile for display and body text.',
+    previewText: 'Texturina',
+    fontFamily: 'var(--font-texturina), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'uncial-antiqua',
+    name: 'Uncial Antiqua',
+    style: 'Medieval / Uncial',
+    googleUrl: 'https://fonts.google.com/specimen/Uncial+Antiqua',
+    description: 'Beautiful uncial script with medieval appearance. Great for fantasy and Celtic designs.',
+    previewText: 'Uncial Antiqua',
+    fontFamily: 'var(--font-uncial-antiqua), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'grenze-gotisch',
+    name: 'Grenze Gotisch',
+    style: 'Gothic Blackletter',
+    googleUrl: 'https://fonts.google.com/specimen/Grenze+Gotisch',
+    description: 'Gothic blackletter font with modern geometry. Perfect for dramatic headlines.',
+    previewText: 'Grenze Gotisch',
+    fontFamily: 'var(--font-grenze-gotisch), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'astloch',
+    name: 'Astloch',
+    style: 'Blackletter',
+    googleUrl: 'https://fonts.google.com/specimen/Astloch',
+    description: 'Distinctive blackletter font with ornate details. Great for certificates and formal documents.',
+    previewText: 'Astloch',
+    fontFamily: 'var(--font-astloch), cursive',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'germania-one',
+    name: 'Germania One',
+    style: 'Gothic / Display',
+    googleUrl: 'https://fonts.google.com/specimen/Germania+One',
+    description: 'Bold display font with gothic influence. Strong and impactful for titles.',
+    previewText: 'Germania One',
+    fontFamily: 'var(--font-germania-one), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'rye',
+    name: 'Rye',
+    style: 'Western / Wood Type',
+    googleUrl: 'https://fonts.google.com/specimen/Rye',
+    description: 'Vintage western wood type style. Perfect for rustic and cowboy themes.',
+    previewText: 'Rye Font',
+    fontFamily: 'var(--font-rye), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'abril-fatface',
+    name: 'Abril Fatface',
+    style: 'Display / Didone',
+    googleUrl: 'https://fonts.google.com/specimen/Abril+Fatface',
+    description: 'Ultra-bold display font with dramatic contrast. Perfect for magazine headlines.',
+    previewText: 'Abril Fatface',
+    fontFamily: 'var(--font-abril-fatface), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'cinzel',
+    name: 'Cinzel',
+    style: 'Classical / Roman',
+    googleUrl: 'https://fonts.google.com/specimen/Cinzel',
+    description: 'Elegant classical Roman font inspired by inscriptions. Great for luxury brands.',
+    previewText: 'Cinzel',
+    fontFamily: 'var(--font-cinzel), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'playfair-display',
+    name: 'Playfair Display',
+    style: 'Transitional / Display',
+    googleUrl: 'https://fonts.google.com/specimen/Playfair+Display',
+    description: 'High-contrast serif with historical influence. Perfect for elegant editorial designs.',
+    previewText: 'Playfair Display',
+    fontFamily: 'var(--font-playfair-display), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'eb-garamond',
+    name: 'EB Garamond',
+    style: 'Classic Serif',
+    googleUrl: 'https://fonts.google.com/specimen/EB+Garamond',
+    description: 'Beautiful revival of Claude Garamond\'s typeface. Excellent for body text and headlines.',
+    previewText: 'EB Garamond',
+    fontFamily: 'var(--font-eb-garamond), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'vollkorn',
+    name: 'Vollkorn',
+    style: 'Humanist Serif',
+    googleUrl: 'https://fonts.google.com/specimen/Vollkorn',
+    description: 'Comfortable serif font with high readability. Great for long-form text.',
+    previewText: 'Vollkorn',
+    fontFamily: 'var(--font-vollkorn), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'cardo',
+    name: 'Cardo',
+    style: 'Classic Serif',
+    googleUrl: 'https://fonts.google.com/specimen/Cardo',
+    description: 'Classic serif designed for scholarly publications. Excellent for academic texts.',
+    previewText: 'Cardo Font',
+    fontFamily: 'var(--font-cardo), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
+  },
+  {
+    id: 'merriweather',
+    name: 'Merriweather',
+    style: 'Slab Serif',
+    googleUrl: 'https://fonts.google.com/specimen/Merriweather',
+    description: 'Designed specifically for comfortable on-screen reading. High legibility.',
+    previewText: 'Merriweather',
+    fontFamily: 'var(--font-merriweather), serif',
+    license: 'SIL Open Font License',
+    source: 'Google Fonts'
   }
 ]
 
@@ -124,37 +315,45 @@ const faqs = [
 ]
 
 export default function FreeFontsDownloadPage() {
+  const downloadableFontsSchema = fontCollectionSchema({
+    name: 'Free Old Fonts Download',
+    description: 'Download 40+ free old English, gothic, vintage, medieval, and blackletter fonts in TTF and OTF formats.',
+    url,
+    items: downloadableFonts.map(font => ({
+      name: font.name,
+      description: font.description,
+      fileFormat: font.format
+    }))
+  })
+
+  const installInstructionsSchema = howToSchema({
+    name: 'How to Install Fonts',
+    description: 'Step-by-step guide to install fonts on Windows, macOS, and Linux systems.',
+    steps: [
+      {
+        name: 'Windows Installation',
+        text: 'Download the font file, right-click the .ttf or .otf file, and select "Install" or "Install for all users". The font will be ready to use in all applications.'
+      },
+      {
+        name: 'macOS Installation',
+        text: 'Download the font file, double-click to open it in Font Book, then click "Install Font". The font will be available in all your applications.'
+      },
+      {
+        name: 'Linux Installation',
+        text: 'Download the font file, copy it to ~/.local/share/fonts/ directory, then run the command: fc-cache -f -v to refresh the font cache.'
+      }
+    ]
+  })
+
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
-      {
-        '@type': 'CollectionPage',
-        name: 'Free Old Fonts Download',
-        description: 'Download free old English, gothic, vintage, and blackletter fonts in TTF and OTF formats.',
-        url,
-        mainEntity: {
-          '@type': 'ItemList',
-          itemListElement: downloadableFonts.map((font, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            item: {
-              '@type': 'SoftwareApplication',
-              name: font.name,
-              applicationCategory: 'Font',
-              operatingSystem: 'Windows, macOS, Linux',
-              offers: {
-                '@type': 'Offer',
-                price: '0',
-                priceCurrency: 'USD'
-              }
-            }
-          }))
-        }
-      },
+      downloadableFontsSchema,
       breadcrumbSchema([
         { name: 'Home', url: 'https://oldfont.net/' },
         { name: 'Free Old Fonts Download', url }
       ]),
+      installInstructionsSchema,
       faqSchema(faqs)
     ]
   }
@@ -254,31 +453,67 @@ export default function FreeFontsDownloadPage() {
           <h2 className='text-2xl font-semibold text-ink'>Recommended Google Fonts</h2>
         </div>
         <p className='text-gray-600'>
-          These fonts are available on Google Fonts and can be used directly in your web projects or downloaded for free.
+          These fonts are available on Google Fonts and can be used directly in your web projects or downloaded for free. Click the button to get them from Google Fonts.
         </p>
         
-        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+        <div className='grid gap-6'>
           {googleFontsRecommended.map(font => (
-            <a
-              key={font.name}
-              href={font.googleUrl}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='group rounded-xl border border-brass/20 bg-white p-5 shadow-sm transition-all hover:border-brass/40 hover:shadow-md'
+            <div
+              key={font.id}
+              className='group relative overflow-hidden rounded-2xl border border-brass/30 bg-gradient-to-br from-white to-parchment/30 p-6 shadow-soft transition-all hover:border-brass/50 hover:shadow-lg'
             >
-              <div className='space-y-2'>
-                <div className='flex items-start justify-between'>
-                  <h3 className='font-semibold text-ink group-hover:text-brass'>{font.name}</h3>
-                  <svg className='h-4 w-4 text-gray-400 transition-colors group-hover:text-brass' fill='none' viewBox='0 0 24 24' strokeWidth='2' stroke='currentColor'>
-                    <path strokeLinecap='round' strokeLinejoin='round' d='M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25' />
-                  </svg>
+              <div className='flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
+                {/* Font Info */}
+                <div className='flex-1 space-y-3'>
+                  <div className='flex flex-wrap items-center gap-3'>
+                    <h3 className='text-xl font-semibold text-ink'>{font.name}</h3>
+                    <span className='rounded-full bg-brass/10 px-3 py-1 text-xs font-medium text-brass'>
+                      {font.style}
+                    </span>
+                  </div>
+                  <p className='text-gray-700'>{font.description}</p>
+                  
+                  {/* Font Preview */}
+                  <div 
+                    className='rounded-lg bg-white/80 p-4 text-3xl md:text-4xl'
+                    style={{ fontFamily: font.fontFamily }}
+                  >
+                    {font.previewText}
+                  </div>
+                  
+                  {/* Meta Info */}
+                  <div className='flex flex-wrap gap-4 text-sm text-gray-600'>
+                    <span className='flex items-center gap-1'>
+                      <svg className='h-4 w-4' fill='none' viewBox='0 0 24 24' strokeWidth='2' stroke='currentColor'>
+                        <path strokeLinecap='round' strokeLinejoin='round' d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z' />
+                      </svg>
+                      {font.license}
+                    </span>
+                    <span className='flex items-center gap-1'>
+                      <svg className='h-4 w-4' fill='none' viewBox='0 0 24 24' strokeWidth='2' stroke='currentColor'>
+                        <path strokeLinecap='round' strokeLinejoin='round' d='M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25' />
+                      </svg>
+                      {font.source}
+                    </span>
+                  </div>
                 </div>
-                <span className='inline-block rounded bg-parchment px-2 py-0.5 text-xs text-gray-600'>
-                  {font.style}
-                </span>
-                <p className='text-sm text-gray-600'>{font.description}</p>
+
+                {/* Google Fonts Button */}
+                <div className='flex-shrink-0'>
+                  <a
+                    href={font.googleUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 font-semibold text-white shadow-lg transition-all hover:from-blue-500 hover:to-blue-600 hover:shadow-xl active:scale-95'
+                  >
+                    <svg className='h-5 w-5' fill='currentColor' viewBox='0 0 24 24'>
+                      <path d='M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z' />
+                    </svg>
+                    Get on Google Fonts
+                  </a>
+                </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </section>

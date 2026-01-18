@@ -5,13 +5,22 @@ import { applicationSchema, breadcrumbSchema } from '@/lib/schema'
 
 const url = 'https://oldfont.net/typewriter-font-generator'
 const primaryKeyword = 'typewriter font generator'
-const secondaryKeywords = ['vintage font generator', 'retro typewriter text online']
+const secondaryKeywords = [
+  'vintage font generator',
+  'retro typewriter text online',
+  'monospace font generator',
+  'vintage text generator',
+  'retro font generator',
+  'old font generator',
+  'typewriter text generator',
+  'monospaced font generator'
+]
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Typewriter Font Generator – Retro Text Online',
+    title: 'Typewriter Font Generator – Retro Monospace Text Online',
     description:
-      'Create nostalgic typewriter text online. Preview vintage monospaced lettering, adjust spacing, and copy your text instantly.',
+      'Free typewriter font generator with authentic vintage monospaced fonts. Create nostalgic retro text instantly. Type, preview, adjust spacing, then copy or export as PNG. Perfect for retro designs, code-inspired branding, and vintage aesthetics.',
     url,
     keywords: [primaryKeyword, ...secondaryKeywords]
   })

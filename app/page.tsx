@@ -3,9 +3,9 @@ import FontGeneratorTool from '@/components/tools/FontGeneratorTool'
 import { breadcrumbSchema, organizationSchema, websiteSchema, faqSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Free Old Font Generator – 10+ Vintage & Gothic Fonts Online',
+  title: 'Free Old Font Generator – 40+ Vintage, Gothic & Medieval Fonts Online',
   description:
-    'Create stunning old English, gothic, vintage & typewriter fonts instantly. 10+ fonts, PNG export, copy HTML. Perfect for logos, social media & tattoos. 100% free!',
+    'Create stunning old English, gothic, vintage, medieval & typewriter fonts instantly. 40+ fonts, PNG export, copy HTML. Perfect for logos, social media & tattoos. 100% free!',
   keywords: [
     'old font generator',
     'old english font generator',
@@ -14,7 +14,17 @@ export const metadata: Metadata = {
     'free font generator',
     'online font generator',
     'blackletter font',
-    'medieval font generator'
+    'medieval font generator',
+    'free old fonts download',
+    'gothic text generator',
+    'blackletter text generator',
+    'vintage text generator',
+    'medieval text generator',
+    'old english text generator',
+    'free gothic fonts',
+    'antique font generator',
+    'western font generator',
+    'wood type font generator'
   ],
   alternates: {
     canonical: 'https://oldfont.net'
@@ -29,7 +39,7 @@ const heroCta = [
 const faqs = [
   {
     question: 'Is OldFont.net free to use?',
-    answer: 'Yes! All font generators are completely free and run directly in your browser.'
+    answer: 'Yes! All font generators and 40+ fonts are completely free and run directly in your browser.'
   },
   {
     question: 'Can I copy and paste the results?',
@@ -38,7 +48,11 @@ const faqs = [
   },
   {
     question: 'Do I need to download fonts?',
-    answer: 'No downloads needed. All fonts load from the web, so you can start creating immediately.'
+    answer: 'No downloads needed. All 40+ fonts load from Google Fonts and local sources, so you can start creating immediately.'
+  },
+  {
+    question: 'How many fonts are available?',
+    answer: 'OldFont.net offers 40+ free fonts including old English, gothic, vintage, medieval, blackletter, and typewriter styles from Google Fonts and curated collections.'
   }
 ]
 
@@ -81,8 +95,8 @@ export default function HomePage() {
       <section className='grid gap-6 md:grid-cols-3'>
         {[
           {
-            title: '10+ Old Fonts',
-            desc: 'Choose from blackletter, gothic, vintage, typewriter, and classic English fonts.'
+            title: '40+ Old Fonts',
+            desc: 'Choose from blackletter, gothic, vintage, medieval, typewriter, and classic English fonts from Google Fonts.'
           },
           { title: 'Instant Preview', desc: 'See your text transform in real-time as you type and adjust settings.' },
           {
