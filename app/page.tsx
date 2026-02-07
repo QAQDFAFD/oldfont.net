@@ -5,21 +5,24 @@ import { breadcrumbSchema, organizationSchema, websiteSchema, faqSchema } from '
 export const metadata: Metadata = {
   title: 'Old Font Generator & Old Fonts Online – 40+ Free Vintage & Gothic Fonts',
   description:
-    'The easiest old font generator online. Create old English, gothic, vintage, medieval & typewriter fonts instantly. 40+ free old fonts online. Type, preview, copy or export as PNG. Perfect for logos, social media & tattoos. 100% free!',
+    'The easiest old font generator online. Create old English, gothic, vintage, medieval & typewriter fonts instantly. 40+ free old fonts online. Type, preview, copy HTML or export as PNG poster. Perfect for logos, social media & tattoos. 100% free!',
   keywords: [
     'old font generator',
     'old fonts online',
     'old fonts generator',
+    'old font',
+    'old fonts',
     'old style font generator',
     'old font easy',
     'old english font generator',
+    'olde english font generator',
+    'old timey font generator',
     'vintage font generator',
     'gothic font generator',
     'typewriter font generator',
     'blackletter font',
     'medieval font generator',
     'antique font generator',
-    'olde english font generator',
     'free font generator',
     'free old fonts',
     'online font generator',
@@ -28,7 +31,13 @@ export const metadata: Metadata = {
     'vintage text generator',
     'medieval text generator',
     'western font generator',
-    'wood type font generator'
+    'wood type font generator',
+    'old font poster maker',
+    'vintage text poster generator',
+    'retro poster maker',
+    'old english poster maker',
+    'gothic poster text',
+    'text poster generator'
   ],
   alternates: {
     canonical: 'https://oldfont.net'

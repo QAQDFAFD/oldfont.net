@@ -15,14 +15,19 @@ const secondaryKeywords = [
   'fraktur font generator',
   'gothic text generator',
   'blackletter text generator',
-  'ornate font generator'
+  'ornate font generator',
+  'old english poster maker',
+  'gothic poster text generator',
+  'blackletter poster maker',
+  'medieval poster font generator',
+  'old timey font generator'
 ]
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Olde English Font Generator – Gothic Blackletter & Fraktur Text',
+    title: 'Olde English Font Generator – Gothic Blackletter & Fraktur Text + Poster Maker',
     description:
-      'The ultimate olde English font generator with 15+ gothic and blackletter fonts. Create ornate gothic lettering instantly. Type, preview, adjust size, then copy or export as PNG. Perfect for tattoos, logos, certificates, and medieval designs. Free old english font generator copy and paste.',
+      'The ultimate olde English font generator with 15+ gothic and blackletter fonts. Create ornate gothic lettering instantly. Type, preview, adjust size, background, then copy HTML or export as PNG poster. Perfect for tattoos, logos, certificates, and medieval designs. Free old english font generator copy and paste.',
     url,
     keywords: [primaryKeyword, ...secondaryKeywords]
   })
@@ -79,7 +84,7 @@ export default function OldEnglishFontGeneratorPage() {
         <p>
           With copy-and-paste convenience, this generator doubles as an{' '}
           <em>old english font text generator copy and paste</em> for social posts and profile bios. You can also export
-          HTML to drop into your landing page or newsletter.
+          your design as a PNG poster with custom background color and padding, or copy HTML to drop into your landing page or newsletter.
         </p>
 
         <h2>Gothic and Fraktur Text Generator Options</h2>

@@ -13,14 +13,19 @@ const secondaryKeywords = [
   'retro font generator',
   'old font generator',
   'typewriter text generator',
-  'monospaced font generator'
+  'monospaced font generator',
+  'retro poster maker',
+  'typewriter poster generator',
+  'vintage text poster maker',
+  'retro monospace poster',
+  'old timey font generator'
 ]
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Typewriter Font Generator – Retro Monospace Text Online',
+    title: 'Typewriter Font Generator – Retro Monospace Text + Poster Maker Online',
     description:
-      'Free typewriter font generator with authentic vintage monospaced fonts. Create nostalgic retro text instantly. Type, preview, adjust spacing, then copy or export as PNG. Perfect for retro designs, code-inspired branding, and vintage aesthetics.',
+      'Free typewriter font generator with authentic vintage monospaced fonts. Create nostalgic retro text instantly. Type, preview, adjust spacing, background, then copy HTML or export as PNG poster. Perfect for retro designs, code-inspired branding, and vintage aesthetics.',
     url,
     keywords: [primaryKeyword, ...secondaryKeywords]
   })
@@ -70,8 +75,7 @@ export default function TypewriterFontGeneratorPage() {
           tight spacing feel authentic to vintage printouts.
         </p>
         <p>
-          Because everything runs in the browser, you can experiment freely without installing fonts. The Copy HTML
-          option preserves spacing for embeds on websites or newsletters.
+          Because everything runs in the browser, you can experiment freely without installing fonts. The Export PNG feature lets you download your design as a retro poster with custom background. The Copy HTML option preserves spacing for embeds on websites or newsletters.
         </p>
 
         <h2>Best Places to Use Typewriter Fonts</h2>

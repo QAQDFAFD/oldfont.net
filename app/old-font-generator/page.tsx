@@ -21,14 +21,20 @@ const secondaryKeywords = [
   'old times font',
   'classic serif font generator',
   'heritage font generator',
-  'display font generator'
+  'display font generator',
+  'old font poster maker',
+  'vintage poster text generator',
+  'retro poster font generator',
+  'old english poster maker',
+  'text poster generator',
+  'old timey font generator'
 ]
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Old Font Generator – Easy Old Style, Gothic & Vintage Fonts Online',
+    title: 'Old Font Generator – Easy Old Style, Gothic & Vintage Fonts + Poster Maker',
     description:
-      'The easiest old font generator online. Create old English, old style, gothic, vintage, and medieval text instantly. 20+ free fonts. Adjust size, spacing, then copy or export as PNG. Perfect for logos, tattoos, invitations, and designs. No download required.',
+      'The easiest old font generator online. Create old English, old style, gothic, vintage, and medieval text instantly. 20+ free fonts. Adjust size, spacing, background, then copy or export as PNG poster. Perfect for logos, tattoos, invitations, and designs. No download required.',
     url,
     keywords: [primaryKeyword, ...secondaryKeywords]
   })
@@ -84,8 +90,7 @@ export default function OldFontGeneratorPage() {
         <h2>How to Use This Old Font Generator</h2>
         <p>
           Enter your phrase, choose from the list of old fonts, and adjust font size and line height. The live preview
-          updates instantly, so you can copy the exact styling you need. The Copy HTML button wraps your words in an
-          inline style for quick use in CMS tools or email editors.
+          updates instantly, so you can copy the exact styling you need. Use the Export PNG feature to download your design as a poster with custom background color and padding. The Copy HTML button wraps your words in an inline style for quick use in CMS tools or email editors.
         </p>
         <p>
           Because this is an <em>old english generator font</em>, letterforms emphasize ornate strokes. Pair a
