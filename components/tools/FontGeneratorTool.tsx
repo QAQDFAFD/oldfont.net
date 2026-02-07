@@ -11,8 +11,8 @@ export type FontGeneratorToolProps = {
   pageDescription: string
   primaryKeyword: string
   secondaryKeywords?: string[]
-  defaultFontId?: string // 新增：默认字体ID
-  allowedFontIds?: string[] // 新增：允许的字体ID列表（用于过滤）
+  defaultFontId?: string
+  allowedFontIds?: string[]
 }
 
 export default function FontGeneratorTool({
@@ -27,6 +27,7 @@ export default function FontGeneratorTool({
     'OldFont.net makes it simple to style your words in vintage, gothic, and typewriter fonts.'
   )
   const [isExporting, setIsExporting] = useState(false)
+  const [copySuccess, setCopySuccess] = useState(false)
   const previewRef = useRef<HTMLDivElement>(null)
 
   // 过滤字体选项（如果指定了允许的字体列表）
@@ -48,6 +49,8 @@ export default function FontGeneratorTool({
   const [fontId, setFontId] = useState(initialFontId)
   const [fontSize, setFontSize] = useState(36)
   const [lineHeight, setLineHeight] = useState(1.2)
+  const [exportBackgroundColor, setExportBackgroundColor] = useState('#ffffff')
+  const [exportPadding, setExportPadding] = useState(0)
 
   const selectedFont: FontOption = useMemo(
     () => availableFonts.find(option => option.id === fontId) ?? availableFonts[0],
@@ -55,9 +58,9 @@ export default function FontGeneratorTool({
   )
 
   const copyHtml = useCallback(() => {
-    const html = `<span style="font-family: ${selectedFont.fontFamily}; font-size: ${fontSize}px; line-height: ${lineHeight};">${text}</span>`
+    const html = `<span style="font-family: ${selectedFont.fontFamily}; font-size: ${fontSize}px; line-height: ${lineHeight}; background-color: ${exportBackgroundColor}; padding: ${exportPadding}px;">${text}</span>`
     navigator.clipboard.writeText(html)
-  }, [fontSize, lineHeight, selectedFont.fontFamily, text])
+  }, [selectedFont.fontFamily, fontSize, lineHeight, text, exportBackgroundColor, exportPadding])
 
   const exportToPng = useCallback(async () => {
     if (!previewRef.current) return
@@ -66,8 +69,11 @@ export default function FontGeneratorTool({
     try {
       const dataUrl = await toPng(previewRef.current, {
         cacheBust: true,
-        backgroundColor: '#ffffff',
-        pixelRatio: 2 // 高清输出
+        backgroundColor: exportBackgroundColor,
+        pixelRatio: 2,
+        style: {
+          padding: `${exportPadding}px`
+        }
       })
 
       // 创建下载链接
@@ -81,7 +87,7 @@ export default function FontGeneratorTool({
     } finally {
       setIsExporting(false)
     }
-  }, [selectedFont.id])
+  }, [selectedFont.id, exportBackgroundColor, exportPadding])
 
   return (
     <section className='grid gap-6 lg:grid-cols-2'>
@@ -94,6 +100,12 @@ export default function FontGeneratorTool({
         setFontSize={setFontSize}
         lineHeight={lineHeight}
         setLineHeight={setLineHeight}
+        exportBackgroundColor={exportBackgroundColor}
+        setExportBackgroundColor={setExportBackgroundColor}
+        exportPadding={exportPadding}
+        setExportPadding={setExportPadding}
+        copySuccess={copySuccess}
+        setCopySuccess={setCopySuccess}
         primaryKeyword={primaryKeyword}
         secondaryKeywords={secondaryKeywords}
         pageTitle={pageTitle}
@@ -110,6 +122,8 @@ export default function FontGeneratorTool({
         selectedFont={selectedFont}
         fontSize={fontSize}
         lineHeight={lineHeight}
+        exportBackgroundColor={exportBackgroundColor}
+        exportPadding={exportPadding}
       />
     </section>
   )

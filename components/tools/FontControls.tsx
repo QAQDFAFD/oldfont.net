@@ -3,7 +3,7 @@ import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import Button from '@/components/ui/Button'
 import Textarea from '@/components/ui/Textarea'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 
 export type FontControlsProps = {
   text: string
@@ -14,6 +14,12 @@ export type FontControlsProps = {
   setFontSize: Dispatch<SetStateAction<number>>
   lineHeight: number
   setLineHeight: Dispatch<SetStateAction<number>>
+  exportBackgroundColor: string
+  setExportBackgroundColor: Dispatch<SetStateAction<string>>
+  exportPadding: number
+  setExportPadding: Dispatch<SetStateAction<number>>
+  copySuccess: boolean
+  setCopySuccess: Dispatch<SetStateAction<boolean>>
   primaryKeyword: string
   secondaryKeywords?: string[]
   pageTitle: string
@@ -34,6 +40,12 @@ export default function FontControls({
   setFontSize,
   lineHeight,
   setLineHeight,
+  exportBackgroundColor,
+  setExportBackgroundColor,
+  exportPadding,
+  setExportPadding,
+  copySuccess,
+  setCopySuccess,
   primaryKeyword,
   secondaryKeywords,
   pageTitle,
@@ -126,7 +138,7 @@ export default function FontControls({
         </div>
 
         {/* 操作按钮 - 移动端优化 */}
-        <div className='space-y-3'>
+        <div className='space-y-3 relative'>
           <div className='grid grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-3'>
             <Button
               type='button'
@@ -136,18 +148,77 @@ export default function FontControls({
               className='w-full justify-center sm:w-auto'>
               {isExporting ? 'Exporting...' : '📸 Export PNG'}
             </Button>
-            <Button
+            <button
               type='button'
-              onClick={onCopyHtml}
-              variant='secondary'
+              onClick={() => {
+                onCopyHtml()
+                setCopySuccess(true)
+                setTimeout(() => setCopySuccess(false), 2000)
+              }}
               aria-label='Copy HTML'
-              className='w-full justify-center sm:w-auto'>
-              📋 Copy HTML
-            </Button>
+              style={{ backgroundColor: exportBackgroundColor }}
+              className='w-full justify-center sm:w-auto inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md border border-brass/50 text-ink transition-all hover:opacity-90'>
+              <span className='flex items-center gap-1'>
+                <span className='text-base'>📋</span>
+                <span>Copy HTML</span>
+              </span>
+            </button>
           </div>
-          <p className='text-center text-xs text-gray-600 sm:text-left'>
+          {copySuccess && (
+            <div className='absolute top-full left-0 right-0 mt-2 flex justify-center animate-fade-in'>
+              <span className='inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 shadow-sm'>
+                <svg className='w-3.5 h-3.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
+                </svg>
+                复制成功！
+              </span>
+            </div>
+          )}
+          <p className='text-center text-xs text-gray-600 sm:text-left pt-1'>
             💡 <strong>Export PNG</strong> for images · <strong>Copy HTML</strong> for websites
           </p>
+        </div>
+
+        {/* 导出选项 */}
+        <div className='space-y-3 rounded-md bg-parchment/50 p-3'>
+          <p className='text-sm font-semibold text-ink'>Export Options</p>
+          <div className='grid gap-3 sm:grid-cols-2'>
+            <div className='space-y-1'>
+              <label className='block text-xs font-medium text-ink' htmlFor='bg-color'>
+                Background
+              </label>
+              <div className='flex items-center gap-2'>
+                <input
+                  id='bg-color'
+                  type='color'
+                  value={exportBackgroundColor}
+                  onChange={event => setExportBackgroundColor(event.target.value)}
+                  className='h-8 w-12 cursor-pointer rounded border border-gray-300 p-0.5'
+                />
+                <Input
+                  type='text'
+                  value={exportBackgroundColor}
+                  onChange={event => setExportBackgroundColor(event.target.value)}
+                  className='flex-1 text-xs'
+                  placeholder='#ffffff'
+                />
+              </div>
+            </div>
+            <div className='space-y-1'>
+              <label className='block text-xs font-medium text-ink' htmlFor='padding'>
+                Padding (px)
+              </label>
+              <Input
+                id='padding'
+                type='number'
+                min={0}
+                max={100}
+                value={exportPadding}
+                onChange={event => setExportPadding(Number(event.target.value))}
+                className='text-xs'
+              />
+            </div>
+          </div>
         </div>
 
         {/* 预览设置信息 */}

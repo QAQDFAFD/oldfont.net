@@ -6,10 +6,12 @@ export type FontPreviewProps = {
   selectedFont: FontOption
   fontSize: number
   lineHeight: number
+  exportBackgroundColor: string
+  exportPadding: number
 }
 
 const FontPreview = forwardRef<HTMLDivElement, FontPreviewProps>(
-  ({ text, selectedFont, fontSize, lineHeight }, ref) => {
+  ({ text, selectedFont, fontSize, lineHeight, exportBackgroundColor, exportPadding }, ref) => {
     // 移动端自动缩小字体大小
     const responsiveFontSize = typeof window !== 'undefined' && window.innerWidth < 640 ? Math.min(fontSize, 48) : fontSize
 
@@ -29,7 +31,9 @@ const FontPreview = forwardRef<HTMLDivElement, FontPreviewProps>(
             fontSize: `clamp(16px, ${fontSize}px, min(${fontSize}px, 12vw))`,
             lineHeight,
             wordBreak: 'break-word',
-            overflowWrap: 'break-word'
+            overflowWrap: 'break-word',
+            backgroundColor: exportBackgroundColor,
+            padding: `${exportPadding}px`
           }}>
           {text || 'OldFont.net – type your text to preview old English, gothic, and typewriter styles.'}
         </div>
