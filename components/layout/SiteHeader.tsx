@@ -45,7 +45,7 @@ export default function SiteHeader() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className={`relative rounded px-2 py-2 transition-colors hover:bg-parchment lg:px-3 ${isActive ? 'text-brass' : 'text-ink dark:text-gray-300'}`}>
+                      className={`relative rounded px-2 py-2 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700 ${isActive ? 'text-brass dark:text-amber-400' : 'text-ink dark:text-gray-300'}`}>
                       {link.label}
                       {link.featured && (
                         <span className='absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center'>
@@ -66,7 +66,7 @@ export default function SiteHeader() {
           <button
             type='button'
             onClick={toggleTheme}
-            className='flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-parchment dark:text-gray-300 dark:hover:bg-gray-800'
+            className='flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700'
             aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}>
             {theme === 'light' ? (
               <svg className='h-5 w-5' fill='none' viewBox='0 0 24 24' strokeWidth='2' stroke='currentColor'>
@@ -82,7 +82,7 @@ export default function SiteHeader() {
           {/* Mobile Menu Button */}
           <button
             type='button'
-            className='flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-parchment md:hidden dark:text-gray-300 dark:hover:bg-gray-800'
+            className='flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-gray-200 md:hidden dark:text-gray-300 dark:hover:bg-gray-700'
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}>
@@ -109,7 +109,7 @@ export default function SiteHeader() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-parchment ${isActive ? 'bg-parchment text-brass' : 'text-ink dark:text-gray-300 dark:hover:bg-gray-800'}`}>
+                      className={`flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium transition-colors ${isActive ? 'bg-parchment text-brass dark:bg-gray-800 dark:text-amber-400' : 'text-ink dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'}`}>
                       {link.label}
                       {link.featured && (
                         <span className='inline-flex h-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-amber-600 px-2 text-[10px] text-white shadow-sm'>
