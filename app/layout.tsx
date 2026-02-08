@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import { fontVariables } from '@/lib/fonts'
+import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import SiteHeader from '@/components/layout/SiteHeader'
 import SiteFooter from '@/components/layout/SiteFooter'
 import Container from '@/components/layout/Container'
@@ -107,13 +108,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' className={fontVariables}>
-      <body className='min-h-screen bg-parchment text-ink'>
-        <SiteHeader />
-        <main>
-          <Container>{children}</Container>
-        </main>
-        <SiteFooter />
-        <AnalyticsPlaceholder />
+      <body className='min-h-screen bg-parchment text-ink dark:bg-parchment-dark dark:text-ink-dark transition-colors duration-300'>
+        <ThemeProvider>
+          <SiteHeader />
+          <main>
+            <Container>{children}</Container>
+          </main>
+          <SiteFooter />
+          <AnalyticsPlaceholder />
+        </ThemeProvider>
       </body>
     </html>
   )
