@@ -1,9 +1,9 @@
-import { FontOption } from '@/lib/fonts'
+import type { Dispatch, SetStateAction } from 'react'
+import type { FontOption } from '@/lib/fonts'
 import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import Button from '@/components/ui/Button'
 import Textarea from '@/components/ui/Textarea'
-import { Dispatch, SetStateAction, useState } from 'react'
 
 export type FontControlsProps = {
   text: string
@@ -56,6 +56,24 @@ export default function FontControls({
   selectedFont,
   availableFonts
 }: FontControlsProps) {
+  const handleFontSizeChange = (value: string) => {
+    const nextSize = Number(value)
+    if (Number.isNaN(nextSize)) return
+    setFontSize(nextSize)
+  }
+
+  const handleLineHeightChange = (value: string) => {
+    const nextLineHeight = Number(value)
+    if (Number.isNaN(nextLineHeight)) return
+    setLineHeight(nextLineHeight)
+  }
+
+  const handlePaddingChange = (value: string) => {
+    const nextPadding = Number(value)
+    if (Number.isNaN(nextPadding)) return
+    setExportPadding(nextPadding)
+  }
+
   return (
     <div className='rounded-lg border border-brass/30 bg-white p-3 shadow-soft sm:p-4'>
       {/* Header - 移动端优化 */}
@@ -113,7 +131,7 @@ export default function FontControls({
               min={12}
               max={120}
               value={fontSize}
-              onChange={event => setFontSize(Number(event.target.value))}
+              onChange={event => handleFontSizeChange(event.target.value)}
               className='text-base'
             />
           </div>
@@ -131,7 +149,7 @@ export default function FontControls({
             max={2}
             step={0.05}
             value={lineHeight}
-            onChange={event => setLineHeight(Number(event.target.value))}
+            onChange={event => handleLineHeightChange(event.target.value)}
             className='h-2 w-full cursor-pointer accent-brass'
           />
           <p className='text-xs text-gray-600'>Current: {lineHeight.toFixed(2)}</p>
@@ -172,7 +190,7 @@ export default function FontControls({
                 min={0}
                 max={100}
                 value={exportPadding}
-                onChange={event => setExportPadding(Number(event.target.value))}
+                onChange={event => handlePaddingChange(event.target.value)}
                 className='text-xs'
               />
             </div>

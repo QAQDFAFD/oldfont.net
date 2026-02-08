@@ -4,7 +4,9 @@ import { useCallback, useMemo, useRef, useState } from 'react'
 import { toPng } from 'html-to-image'
 import FontPreview from './FontPreview'
 import FontControls from './FontControls'
-import { fontOptions, FontOption } from '@/lib/fonts'
+import { fontOptions } from '@/lib/fonts'
+import type { FontOption } from '@/lib/fonts'
+import { clamp, escapeHtml, sanitizeHexColor } from '@/lib/sanitize'
 
 export type FontGeneratorToolProps = {
   pageTitle: string
@@ -14,6 +16,8 @@ export type FontGeneratorToolProps = {
   defaultFontId?: string
   allowedFontIds?: string[]
 }
+
+const DEFAULT_EXPORT_BG_COLOR = '#f7f4eb'
 
 export default function FontGeneratorTool({
   pageTitle,
@@ -49,7 +53,7 @@ export default function FontGeneratorTool({
   const [fontId, setFontId] = useState(initialFontId)
   const [fontSize, setFontSize] = useState(36)
   const [lineHeight, setLineHeight] = useState(1.2)
-  const [exportBackgroundColor, setExportBackgroundColor] = useState('#8b5cf6')
+  const [exportBackgroundColor, setExportBackgroundColor] = useState(DEFAULT_EXPORT_BG_COLOR)
   const [exportPadding, setExportPadding] = useState(30)
 
   const selectedFont: FontOption = useMemo(
@@ -57,10 +61,29 @@ export default function FontGeneratorTool({
     [fontId, availableFonts]
   )
 
+  const safeFontSize = useMemo(() => clamp(fontSize, 12, 120), [fontSize])
+  const safeLineHeight = useMemo(() => clamp(lineHeight, 1, 2), [lineHeight])
+  const safeExportPadding = useMemo(() => clamp(exportPadding, 0, 100), [exportPadding])
+  const safeExportBackgroundColor = useMemo(
+    () => sanitizeHexColor(exportBackgroundColor, DEFAULT_EXPORT_BG_COLOR),
+    [exportBackgroundColor]
+  )
+
   const copyHtml = useCallback(() => {
-    const html = `<span style="font-family: ${selectedFont.fontFamily}; font-size: ${fontSize}px; line-height: ${lineHeight}; background-color: ${exportBackgroundColor}; padding: ${exportPadding}px;">${text}</span>`
-    navigator.clipboard.writeText(html)
-  }, [selectedFont.fontFamily, fontSize, lineHeight, text, exportBackgroundColor, exportPadding])
+    const escapedText = escapeHtml(text)
+    const html = `<span style="font-family: ${selectedFont.fontFamily}; font-size: ${safeFontSize}px; line-height: ${safeLineHeight}; background-color: ${safeExportBackgroundColor}; padding: ${safeExportPadding}px;">${escapedText}</span>`
+    navigator.clipboard.writeText(html).catch(error => {
+      console.error('Failed to copy HTML:', error)
+      alert('Failed to copy HTML. Please try again.')
+    })
+  }, [
+    selectedFont.fontFamily,
+    safeFontSize,
+    safeLineHeight,
+    safeExportBackgroundColor,
+    safeExportPadding,
+    text
+  ])
 
   const exportToPng = useCallback(async () => {
     if (!previewRef.current) return
@@ -69,10 +92,10 @@ export default function FontGeneratorTool({
     try {
       const dataUrl = await toPng(previewRef.current, {
         cacheBust: true,
-        backgroundColor: exportBackgroundColor,
+        backgroundColor: safeExportBackgroundColor,
         pixelRatio: 2,
         style: {
-          padding: `${exportPadding}px`
+          padding: `${safeExportPadding}px`
         }
       })
 
@@ -87,7 +110,7 @@ export default function FontGeneratorTool({
     } finally {
       setIsExporting(false)
     }
-  }, [selectedFont.id, exportBackgroundColor, exportPadding])
+  }, [selectedFont.id, safeExportBackgroundColor, safeExportPadding])
 
   return (
     <section className='grid gap-6 lg:grid-cols-2'>
@@ -120,10 +143,10 @@ export default function FontGeneratorTool({
         ref={previewRef}
         text={text}
         selectedFont={selectedFont}
-        fontSize={fontSize}
-        lineHeight={lineHeight}
-        exportBackgroundColor={exportBackgroundColor}
-        exportPadding={exportPadding}
+        fontSize={safeFontSize}
+        lineHeight={safeLineHeight}
+        exportBackgroundColor={safeExportBackgroundColor}
+        exportPadding={safeExportPadding}
       />
     </section>
   )

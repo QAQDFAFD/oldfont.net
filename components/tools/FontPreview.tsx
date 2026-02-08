@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { FontOption } from '@/lib/fonts'
+import type { FontOption } from '@/lib/fonts'
 
 export type FontPreviewProps = {
   text: string
@@ -12,9 +12,6 @@ export type FontPreviewProps = {
 
 const FontPreview = forwardRef<HTMLDivElement, FontPreviewProps>(
   ({ text, selectedFont, fontSize, lineHeight, exportBackgroundColor, exportPadding }, ref) => {
-    // 移动端自动缩小字体大小
-    const responsiveFontSize = typeof window !== 'undefined' && window.innerWidth < 640 ? Math.min(fontSize, 48) : fontSize
-
     return (
       <div className='rounded-lg border border-brass/30 bg-white p-3 shadow-soft sm:p-4'>
         <div className='flex items-center justify-between'>

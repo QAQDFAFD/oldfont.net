@@ -10,8 +10,6 @@ import {
   MedievalSharp,
   Pirata_One,
   IM_Fell_DW_Pica,
-  IM_Fell_English,
-  IM_Fell_English_SC,
   Almendra,
   Almendra_Display,
   Almendra_SC,

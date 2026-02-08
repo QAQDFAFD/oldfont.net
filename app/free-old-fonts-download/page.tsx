@@ -531,7 +531,7 @@ export default function FreeFontsDownloadPage() {
             <ol className='space-y-1 text-sm text-gray-700'>
               <li>1. Download the font file</li>
               <li>2. Right-click the .ttf or .otf file</li>
-              <li>3. Select "Install" or "Install for all users"</li>
+              <li>3. Select &quot;Install&quot; or &quot;Install for all users&quot;</li>
               <li>4. Font is ready to use!</li>
             </ol>
           </div>
@@ -543,7 +543,7 @@ export default function FreeFontsDownloadPage() {
             <ol className='space-y-1 text-sm text-gray-700'>
               <li>1. Download the font file</li>
               <li>2. Double-click the font file</li>
-              <li>3. Click "Install Font" in Font Book</li>
+              <li>3. Click &quot;Install Font&quot; in Font Book</li>
               <li>4. Font is ready to use!</li>
             </ol>
           </div>
@@ -620,4 +620,3 @@ export default function FreeFontsDownloadPage() {
     </main>
   )
 }
-
