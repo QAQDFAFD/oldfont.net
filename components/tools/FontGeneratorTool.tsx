@@ -49,8 +49,8 @@ export default function FontGeneratorTool({
   const [fontId, setFontId] = useState(initialFontId)
   const [fontSize, setFontSize] = useState(36)
   const [lineHeight, setLineHeight] = useState(1.2)
-  const [exportBackgroundColor, setExportBackgroundColor] = useState('#ffffff')
-  const [exportPadding, setExportPadding] = useState(0)
+  const [exportBackgroundColor, setExportBackgroundColor] = useState('#8b5cf6')
+  const [exportPadding, setExportPadding] = useState(30)
 
   const selectedFont: FontOption = useMemo(
     () => availableFonts.find(option => option.id === fontId) ?? availableFonts[0],

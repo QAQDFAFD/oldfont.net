@@ -137,48 +137,6 @@ export default function FontControls({
           <p className='text-xs text-gray-600'>Current: {lineHeight.toFixed(2)}</p>
         </div>
 
-        {/* 操作按钮 - 移动端优化 */}
-        <div className='space-y-3 relative'>
-          <div className='grid grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-3'>
-            <Button
-              type='button'
-              onClick={onExportPng}
-              aria-label='Export as PNG'
-              disabled={isExporting}
-              className='w-full justify-center sm:w-auto'>
-              {isExporting ? 'Exporting...' : '📸 Export PNG'}
-            </Button>
-            <button
-              type='button'
-              onClick={() => {
-                onCopyHtml()
-                setCopySuccess(true)
-                setTimeout(() => setCopySuccess(false), 2000)
-              }}
-              aria-label='Copy HTML'
-              style={{ backgroundColor: exportBackgroundColor }}
-              className='w-full justify-center sm:w-auto inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md border border-brass/50 text-ink transition-all hover:opacity-90'>
-              <span className='flex items-center gap-1'>
-                <span className='text-base'>📋</span>
-                <span>Copy HTML</span>
-              </span>
-            </button>
-          </div>
-          {copySuccess && (
-            <div className='absolute top-full left-0 right-0 mt-2 flex justify-center animate-fade-in'>
-              <span className='inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 shadow-sm'>
-                <svg className='w-3.5 h-3.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
-                </svg>
-                复制成功！
-              </span>
-            </div>
-          )}
-          <p className='text-center text-xs text-gray-600 sm:text-left pt-1'>
-            💡 <strong>Export PNG</strong> for images · <strong>Copy HTML</strong> for websites
-          </p>
-        </div>
-
         {/* 导出选项 */}
         <div className='space-y-3 rounded-md bg-parchment/50 p-3'>
           <p className='text-sm font-semibold text-ink'>Export Options</p>
@@ -219,6 +177,48 @@ export default function FontControls({
               />
             </div>
           </div>
+        </div>
+
+        {/* 操作按钮 - 移动端优化 */}
+        <div className='space-y-3 relative'>
+          <div className='grid grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-3'>
+            <Button
+              type='button'
+              onClick={onExportPng}
+              aria-label='Export as PNG'
+              disabled={isExporting}
+              className='w-full justify-center sm:w-auto'>
+              {isExporting ? 'Exporting...' : '📸 Export PNG'}
+            </Button>
+            <button
+              type='button'
+              onClick={() => {
+                onCopyHtml()
+                setCopySuccess(true)
+                setTimeout(() => setCopySuccess(false), 2000)
+              }}
+              aria-label='Copy HTML'
+              style={{ backgroundColor: exportBackgroundColor }}
+              className='w-full justify-center sm:w-auto inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md border border-brass/50 text-ink transition-all hover:opacity-90'>
+              <span className='flex items-center gap-1'>
+                <span className='text-base'>📋</span>
+                <span>Copy HTML</span>
+              </span>
+            </button>
+          </div>
+          {copySuccess && (
+            <div className='absolute top-full left-0 right-0 mt-2 flex justify-center animate-fade-in'>
+              <span className='inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 shadow-sm'>
+                <svg className='w-3.5 h-3.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
+                </svg>
+                复制成功！
+              </span>
+            </div>
+          )}
+          <p className='text-center text-xs text-gray-600 sm:text-left pt-1'>
+            💡 <strong>Export PNG</strong> for images · <strong>Copy HTML</strong> for websites
+          </p>
         </div>
 
         {/* 预览设置信息 */}
