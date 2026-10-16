@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import FontGeneratorTool from '@/components/tools/FontGeneratorTool'
+import UnicodeTextTool from '@/components/tools/UnicodeTextTool'
+import { fontOptions } from '@/lib/fonts'
 import { buildToolMetadata } from '@/lib/seo'
 import { applicationSchema, breadcrumbSchema } from '@/lib/schema'
 
@@ -30,11 +33,20 @@ const secondaryKeywords = [
   'old timey font generator'
 ]
 
+const eras = [
+  { era: '1700s & colonial print', fonts: 'IM Fell DW Pica, Cardo, EB Garamond', fontId: 'fell', sample: 'Ye Olde Almanack' },
+  { era: '1800s & Victorian', fonts: 'Libre Baskerville, Playfair Display, Almendra Display', fontId: 'playfair-display', sample: 'Grand Exhibition 1851' },
+  { era: 'Wild West wanted posters', fonts: 'Rye, Sancreek', fontId: 'rye', sample: 'WANTED' },
+  { era: '1900s–1920s newspapers', fonts: 'Abril Fatface, Vollkorn, Merriweather', fontId: 'abril-fatface', sample: 'Extra! Extra!' },
+  { era: '1930s–1940s typewritten notes', fonts: 'Special Elite, Courier New', fontId: 'typewriter', sample: 'Classified Report' },
+  { era: 'Medieval & Old English', fonts: 'UnifrakturCook, Texturina, Uncial Antiqua', fontId: 'unifraktur', sample: 'Olde Tavern' }
+]
+
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Old Font Generator – Easy Old Style, Gothic & Vintage Fonts + Poster Maker',
+    title: 'Old Font Generator – Vintage, Antique & Old Timey Fonts',
     description:
-      'The easiest old font generator online. Create old English, old style, gothic, vintage, and medieval text instantly. 20+ free fonts. Adjust size, spacing, background, then copy or export as PNG poster. Perfect for logos, tattoos, invitations, and designs. No download required.',
+      'Type your text in 50+ old fonts: 1800s serifs, Victorian, Wild West, 1940s typewriter and gothic. Copy & paste old timey text or export a PNG. Free, no download.',
     url,
     keywords: [primaryKeyword, ...secondaryKeywords]
   })
@@ -44,10 +56,10 @@ export default function OldFontGeneratorPage() {
     '@context': 'https://schema.org',
     '@graph': [
       applicationSchema({
-        name: 'Old Font Generator – Old English & Vintage Fonts',
+        name: 'Old Font Generator – Vintage & Antique Fonts',
         url,
         description:
-          'Generate Old English, gothic, and vintage style text online. Customize font size and line height, then copy or export instantly.'
+          'Preview vintage, antique, gothic and typewriter fonts online, copy old timey Unicode text, or export PNG images.'
       }),
       breadcrumbSchema([
         { name: 'Home', url: 'https://oldfont.net/' },
@@ -57,79 +69,60 @@ export default function OldFontGeneratorPage() {
   }
 
   return (
-    <main className='space-y-10 pb-16'>
+    <div className='space-y-10 pb-16'>
       <div className='space-y-4'>
-        <p className='text-sm font-semibold uppercase tracking-wide text-brass'>{primaryKeyword}</p>
-        <h1 className='text-3xl font-semibold text-ink'>Old Font Generator – Vintage & Classic Style Text</h1>
-        <p className='text-lg text-gray-700'>
-          Craft elegant vintage lettering with this {primaryKeyword}. Preview heritage scripts, classic serifs, gothic,
-          and old English fonts, then copy your text or HTML for invitations, branding, and elegant designs.
+        <nav aria-label='Breadcrumb' className='text-sm text-gray-600'><Link href='/' className='underline'>Home</Link> / Old Font Generator</nav>
+        <h1 className='text-3xl font-semibold text-ink sm:text-4xl'>Old Font Generator – Vintage, Antique &amp; Old Timey Text</h1>
+        <p className='max-w-3xl text-lg text-gray-700'>
+          Preview your words in 50+ old fonts, from 1700s print and Victorian posters to 1940s typewriters. Export a PNG for invitations,
+          logos and signs, or copy old timey text straight into your bio.
         </p>
       </div>
 
       <FontGeneratorTool
         pageTitle='Old Font Generator'
-        pageDescription='Preview heritage scripts, elegant serifs, and vintage fonts for all occasions.'
+        pageDescription='Pick a vintage font, adjust the layout, then export a PNG.'
         primaryKeyword={primaryKeyword}
         secondaryKeywords={secondaryKeywords}
         defaultFontId='fell'
       />
 
-      <section className='prose prose-stone max-w-none space-y-6 text-gray-800'>
-        <h2>The Easiest Old Font Generator Online</h2>
-        <p>
-          OldFont.net provides the most user-friendly old font generator. Our old fonts online platform makes it incredibly
-          simple to create old style text—just type, choose your font, and copy. No registration, no downloads,
-          completely free. This old font easy approach means you can generate vintage text in seconds.
-        </p>
-        <p>
-          Whether you need an old style font generator for wedding invitations, a gothic font generator for gaming channels,
-          or an antique font generator for vintage branding, our platform delivers perfect results every time.
-        </p>
+      <UnicodeTextTool heading='Copy &amp; paste old timey text' defaultText='Old Timey Text'
+        description='These styles are Unicode letters, so they paste into Instagram, TikTok, Discord and most apps.'
+        styles={['script', 'fraktur', 'small-caps', 'monospace', 'bold-script', 'bold-fraktur']} />
 
-        <h2>How to Use This Old Font Generator</h2>
-        <p>
-          Enter your phrase, choose from the list of old fonts, and adjust font size and line height. The live preview
-          updates instantly, so you can copy the exact styling you need. Use the Export PNG feature to download your design as a poster with custom background color and padding. The Copy HTML button wraps your words in an inline style for quick use in CMS tools or email editors.
-        </p>
-        <p>
-          Because this is an <em>old english generator font</em>, letterforms emphasize ornate strokes. Pair a
-          larger font size with balanced line height for legibility, or tighten spacing when you want an inked,
-          traditional look.
-        </p>
+      <section className='space-y-4'>
+        <h2 className='text-2xl font-semibold text-ink'>Old fonts by era</h2>
+        <p className='text-gray-700'>Not sure which font fits? Start with the era you want to recreate, then pick one of these in the font list above.</p>
+        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          {eras.map(item => (
+            <div key={item.era} className='rounded-lg border border-brass/30 bg-white p-5'>
+              <h3 className='font-semibold text-ink'>{item.era}</h3>
+              <p className='mt-3 text-2xl text-ink' style={{ fontFamily: fontOptions.find(font => font.id === item.fontId)?.fontFamily }}>{item.sample}</p>
+              <p className='mt-3 text-sm text-gray-700'>Try: {item.fonts}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <h2>Old English Font Generator Copy and Paste</h2>
+      <section className='space-y-4 text-gray-700'>
+        <h2 className='text-2xl font-semibold text-ink'>How to use the old font generator</h2>
+        <ol className='list-decimal space-y-2 pl-6'>
+          <li>Type your name, title or phrase in the text box.</li>
+          <li>Choose a font from the list. The preview updates instantly.</li>
+          <li>Adjust size, line height, background color and padding.</li>
+          <li>Press Export PNG to download a high-resolution image (2× pixel ratio).</li>
+        </ol>
         <p>
-          Many visitors look for an <strong>old english font text generator copy and paste</strong>. This page keeps
-          things simple: type once, preview in Old English or Gothic, and copy formatted text. Use it for Instagram
-          bios, TikTok overlays, printable certificates, or tattoo mockups.
-        </p>
-        <p>
-          You can also switch to vintage serif option for wedding invitations and certificates, or decorative
-          gothic display for dramatic headings. Every option is optimized for readability while keeping the antique
-          mood.
-        </p>
-
-        <h2>Old School and Classic Font Styles</h2>
-        <p>
-          Our old fonts generator includes old school font generator options for retro projects. These nostalgic styles bring
-          authentic vintage character to your designs, perfect for themed events, nostalgic branding, and retro media.
-          From old times font styles to classic serif elegance, find the perfect old style font generator for any project.
-        </p>
-
-        <h2>Why OldFont.net Is Your Best Old Fonts Online Choice</h2>
-        <p>
-          With 20+ carefully curated fonts, our old font generator offers the most comprehensive collection of old style,
-          gothic, vintage, and medieval typography. The old font easy interface means anyone can create professional
-          vintage text without design experience.
-        </p>
-        <p>
-          Whether you call it an olde english font generator, antique font generator, or old times font creator, our
-          platform delivers consistent, high-quality results that will make your designs stand out.
+          Need text you can paste instead of an image? Use the copy &amp; paste box above, or the{' '}
+          <Link href='/old-english-font-generator' className='underline'>Old English text generator</Link> for gothic lettering.
+          Looking for 90s web fonts like Comic Sans and Tahoma? Try the{' '}
+          <Link href='/old-internet-font-generator' className='underline'>old internet font generator</Link>. To install a font on your
+          computer, visit <Link href='/free-old-fonts-download' className='underline'>free old fonts download</Link>.
         </p>
       </section>
 
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-    </main>
+    </div>
   )
 }

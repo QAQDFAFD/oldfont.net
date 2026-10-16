@@ -18,6 +18,8 @@ export default function SiteFooter() {
               <li><Link href="/old-font-generator" className="hover:text-brass dark:hover:text-amber-400">Old Font Generator</Link></li>
               <li><Link href="/old-english-font-generator" className="hover:text-brass dark:hover:text-amber-400">Old English Font Generator</Link></li>
               <li><Link href="/typewriter-font-generator" className="hover:text-brass dark:hover:text-amber-400">Typewriter Font Generator</Link></li>
+              <li><Link href="/old-internet-font-generator" className="hover:text-brass dark:hover:text-amber-400">Old Internet Font Generator</Link></li>
+              <li><Link href="/free-old-fonts-download" className="hover:text-brass dark:hover:text-amber-400">Free Old Fonts Download</Link></li>
             </ul>
           </div>
           <div>

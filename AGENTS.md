@@ -9,7 +9,7 @@
 | `npm run start` | Start production server |
 | `npm run lint` | Run ESLint |
 
-**Testing**: No test framework is configured. When adding tests, set up Vitest or Jest and document commands here.
+**Testing**: Vitest is configured. Run `npm run test` for Unicode conversion, clipboard interaction and export contrast tests.
 
 ## Code Style & Conventions
 

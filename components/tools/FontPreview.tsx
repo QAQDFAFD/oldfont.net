@@ -1,4 +1,6 @@
 import { forwardRef } from 'react'
+import clsx from 'clsx'
+import { getExportTextColor } from '@/lib/sanitize'
 import type { FontOption } from '@/lib/fonts'
 
 export type FontPreviewProps = {
@@ -22,7 +24,7 @@ const FontPreview = forwardRef<HTMLDivElement, FontPreviewProps>(
         </div>
         <div
           ref={ref}
-          className='mt-2 min-h-[120px] overflow-x-auto whitespace-pre-wrap break-words text-ink sm:min-h-[150px]'
+          className={clsx('mt-2 min-h-[120px] overflow-x-auto whitespace-pre-wrap break-words sm:min-h-[150px]', getExportTextColor(exportBackgroundColor) === '#ffffff' ? 'text-white' : 'text-[#1f2937]')}
           style={{
             fontFamily: selectedFont.fontFamily,
             fontSize: `clamp(16px, ${fontSize}px, min(${fontSize}px, 12vw))`,

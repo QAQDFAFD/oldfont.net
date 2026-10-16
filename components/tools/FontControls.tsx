@@ -19,12 +19,12 @@ export type FontControlsProps = {
   exportPadding: number
   setExportPadding: Dispatch<SetStateAction<number>>
   copySuccess: boolean
-  setCopySuccess: Dispatch<SetStateAction<boolean>>
+  isCopying: boolean
   primaryKeyword: string
   secondaryKeywords?: string[]
   pageTitle: string
   pageDescription: string
-  onCopyHtml: () => void
+  onCopyHtml: () => Promise<void>
   onExportPng: () => void
   isExporting: boolean
   selectedFont: FontOption
@@ -45,9 +45,8 @@ export default function FontControls({
   exportPadding,
   setExportPadding,
   copySuccess,
-  setCopySuccess,
+  isCopying,
   primaryKeyword,
-  secondaryKeywords,
   pageTitle,
   pageDescription,
   onCopyHtml,
@@ -75,7 +74,7 @@ export default function FontControls({
   }
 
   return (
-    <div className='rounded-lg border border-brass/30 bg-white p-3 shadow-soft sm:p-4'>
+    <fieldset disabled={isExporting || isCopying} className='min-w-0 rounded-lg border border-brass/30 bg-white p-3 shadow-soft sm:p-4'>
       {/* Header - 移动端优化 */}
       <div className='flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4'>
         <div className='min-w-0 flex-1'>
@@ -210,32 +209,28 @@ export default function FontControls({
             </Button>
             <button
               type='button'
-              onClick={() => {
-                onCopyHtml()
-                setCopySuccess(true)
-                setTimeout(() => setCopySuccess(false), 2000)
-              }}
+              onClick={onCopyHtml}
+              disabled={isCopying || !text.trim()}
               aria-label='Copy HTML'
-              style={{ backgroundColor: exportBackgroundColor }}
-              className='w-full justify-center sm:w-auto inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md border border-brass/50 text-ink transition-all hover:opacity-90'>
+              className='w-full justify-center sm:w-auto inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-md border border-brass/50 text-ink transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50'>
               <span className='flex items-center gap-1'>
                 <span className='text-base'>📋</span>
-                <span>Copy HTML</span>
+                <span>{isCopying ? 'Copying...' : 'Copy HTML'}</span>
               </span>
             </button>
           </div>
           {copySuccess && (
-            <div className='absolute top-full left-0 right-0 mt-2 flex justify-center animate-fade-in'>
+            <div role='status' className='absolute top-full left-0 right-0 mt-2 flex justify-center animate-fade-in'>
               <span className='inline-flex items-center gap-1.5 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700 shadow-sm'>
                 <svg className='w-3.5 h-3.5' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
                 </svg>
-                复制成功！
+                HTML copied!
               </span>
             </div>
           )}
           <p className='text-center text-xs text-gray-600 sm:text-left pt-1'>
-            💡 <strong>Export PNG</strong> for images · <strong>Copy HTML</strong> for websites
+            Export PNG to preserve the font appearance. Copied HTML requires this site’s font stylesheet; it does not embed font files or work as styled text in social apps.
           </p>
         </div>
 
@@ -248,10 +243,8 @@ export default function FontControls({
           </p>
         </div>
 
-        {secondaryKeywords?.length ? (
-          <p className='hidden text-xs text-gray-600 sm:block'>Related: {secondaryKeywords.join(', ')}</p>
-        ) : null}
+
       </div>
-    </div>
+    </fieldset>
   )
 }

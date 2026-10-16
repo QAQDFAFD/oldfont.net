@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
+import UnicodeTextTool from '@/components/tools/UnicodeTextTool'
 import FontGeneratorTool from '@/components/tools/FontGeneratorTool'
 import { breadcrumbSchema, organizationSchema, websiteSchema, faqSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Old Font Generator & Old Fonts Online – 40+ Free Vintage & Gothic Fonts',
+  title: { absolute: 'Old Font Generator – Old English Text Copy & Paste + 50 Vintage Fonts' },
   description:
-    'The easiest old font generator online. Create old English, gothic, vintage, medieval & typewriter fonts instantly. 40+ free old fonts online. Type, preview, copy HTML or export as PNG poster. Perfect for logos, social media & tattoos. 100% free!',
+    'Free old font generator: type once to copy & paste Old English, old letter script and typewriter text, or preview 50+ gothic, vintage and old internet fonts and save a PNG. No sign-up.',
   keywords: [
     'old font generator',
     'old fonts online',
@@ -41,43 +42,47 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: 'https://oldfont.net'
+  },
+  openGraph: {
+    url: 'https://oldfont.net',
+    title: 'Old Font Generator – Old English Text Copy & Paste',
+    description: 'Copy & paste Old English and vintage text, or preview 50+ old fonts and save a PNG. Free, no sign-up.'
   }
 }
 
 const heroCta = [
   { href: '/old-font-generator', label: 'Use Old Font Generator' },
-  { href: '/old-english-font-generator', label: 'Old English Generator' }
+  { href: '/old-english-font-generator', label: 'Old English Generator' },
+  { href: '/old-internet-font-generator', label: 'Old Internet Fonts' }
 ]
 
 const faqs = [
   {
     question: 'Is OldFont.net free to use?',
-    answer: 'Yes! All font generators and 40+ fonts are completely free and run directly in your browser.'
+    answer: 'Yes. Every generator runs in your browser, with no account, watermark or download required.'
   },
   {
-    question: 'Can I copy and paste the results?',
+    question: 'How do I copy and paste Old English text?',
     answer:
-      'Absolutely. Use the Copy Text button for plaintext or Copy HTML to preserve styling. Works everywhere—social media, websites, and design tools.'
+      'Type in the copy box at the top of the page and press Copy under the style you like. The result uses Unicode characters, so it pastes into Instagram, TikTok, Discord, Word and most apps. Support varies by app and device.'
   },
   {
-    question: 'Do I need to download fonts?',
-    answer: 'No downloads needed. All 40+ fonts load from Google Fonts and local sources, so you can start creating immediately.'
+    question: 'What is the difference between copyable text and a font image?',
+    answer:
+      'Copyable styles (Old English, script, typewriter, small caps) are special Unicode letters that travel with your text. The 50+ real fonts in the image maker have more detailed letter shapes, but they only work as a PNG image or on websites that load the font.'
   },
   {
-    question: 'How many fonts are available?',
-    answer: 'OldFont.net offers 40+ free fonts including old English, gothic, vintage, medieval, blackletter, and typewriter styles from Google Fonts and curated collections.'
+    question: 'Can I download these old fonts?',
+    answer: 'Yes. The free old fonts download page lists the TTF files and Google Fonts links for the fonts used here, along with their licenses.'
   },
   {
-    question: 'Is this an old font easy to use?',
-    answer: 'Yes! OldFont.net is the easiest old font generator online. Simply type, choose your font, adjust settings, and copy or export. No registration or downloads required.'
+    question: 'Which fonts look like the 1800s, 1920s or 1940s?',
+    answer:
+      'For 1700s–1800s print, try IM Fell DW Pica, EB Garamond or Libre Baskerville. For Wild West posters, try Rye or Sancreek. For 1920s–1940s headlines, try Abril Fatface, Playfair Display or the Special Elite typewriter font.'
   },
   {
-    question: 'Do you have old school font generator options?',
-    answer: 'Absolutely! Our old font generator includes old school font generator styles perfect for retro projects, nostalgic branding, and themed designs.'
-  },
-  {
-    question: 'Can I find antique font generator options?',
-    answer: 'Yes! Our free old fonts download section offers 20+ antique font generator options including vintage serifs, classic displays, and old-style typefaces.'
+    question: 'Do you have old internet and old computer fonts?',
+    answer: 'Yes. The old internet font generator previews Comic Sans, Times New Roman, Tahoma, Verdana and pixel fonts from 90s and early 2000s computers.'
   }
 ]
 
@@ -98,11 +103,11 @@ export default function HomePage() {
       <section className='space-y-6 text-center'>
         <p className='text-sm font-semibold uppercase tracking-wide text-brass'>Vintage typography made easy</p>
         <h1 className='font-gothic text-4xl font-semibold leading-tight text-ink md:text-5xl lg:text-6xl'>
-          Old Font Generator & Old Fonts Online – 40+ Free Fonts
+          Old Font Generator – Old English &amp; Vintage Text
         </h1>
         <p className='font-display mx-auto max-w-2xl text-lg text-gray-700 md:text-xl italic'>
-          The easiest old font generator online. Transform ordinary words into old English, gothic, vintage, and typewriter-style lettering.
-          Type once, preview instantly, and copy your stylized text. No download required, completely free.
+          Type once to copy &amp; paste Old English, old letter script and typewriter text — or preview 50+ real gothic, vintage and
+          old internet fonts and save a PNG. Free, no account required.
         </p>
         <div className='flex flex-wrap justify-center gap-4'>
           {heroCta.map(cta => (
@@ -116,11 +121,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      <UnicodeTextTool />
+
       {/* Features Grid */}
       <section className='grid gap-6 md:grid-cols-3'>
         {[
           {
-            title: '40+ Old Fonts',
+            title: '50+ Old Fonts',
             desc: 'Choose from blackletter, gothic, vintage, medieval, typewriter, and classic English fonts from Google Fonts.',
             font: 'font-unifraktur'
           },
@@ -156,7 +163,7 @@ export default function HomePage() {
 
           <div className='grid gap-6 md:grid-cols-2'>
             <div className='space-y-3'>
-              <h3 className='font-almendra text-xl font-semibold text-ink'>🎨 40+ Font Styles</h3>
+              <h3 className='font-almendra text-xl font-semibold text-ink'>🎨 50+ Font Styles</h3>
               <ul className='space-y-2 text-gray-700'>
                 <li>• <span className='font-old-englishish'>Old English</span> - Unifraktur, MedievalSharp, Pirata One</li>
                 <li>• <span className='font-texturina'>Gothic</span> - Blackletter, Texturina, Germania One</li>
@@ -211,6 +218,13 @@ export default function HomePage() {
               font: 'font-typewriter'
             },
             {
+              href: '/old-internet-font-generator',
+              title: 'Old Internet Fonts',
+              desc: 'Comic Sans, Tahoma, Times New Roman & pixel fonts from the 90s web',
+              emoji: '💾',
+              font: 'font-typewriter'
+            },
+            {
               href: '/free-old-fonts-download',
               title: 'Free Font Downloads',
               desc: 'Download gothic & vintage fonts in TTF/OTF format',
@@ -233,20 +247,20 @@ export default function HomePage() {
       {/* Live Demo Section */}
       <section className='space-y-6'>
         <div className='text-center'>
-          <h2 className='font-typewriter text-3xl font-semibold text-ink'>Try It Now!</h2>
-          <p className='font-display mt-2 text-gray-600 italic'>Type below and see the magic happen</p>
+          <h2 className='font-typewriter text-3xl font-semibold text-ink'>Create a font image</h2>
+          <p className='font-display mt-2 text-gray-600 italic'>Choose a real font and export a PNG for your design</p>
         </div>
         <div className='rounded-xl border-2 border-brass/20 bg-white p-4 shadow-lg'>
           <FontGeneratorTool
-            pageTitle='Live Demo'
-            pageDescription='Type your text and see it transform instantly'
-            primaryKeyword='typewriter font generator'
+            pageTitle='Font image maker'
+            pageDescription='Preview real fonts and export your lettering as a PNG image.'
+            primaryKeyword='old font generator'
             secondaryKeywords={[
               'retro font generator',
               'vintage text generator',
               'monospace font generator'
             ]}
-            defaultFontId='typewriter'
+            defaultFontId='unifraktur'
           />
         </div>
       </section>
@@ -322,23 +336,10 @@ export default function HomePage() {
       <section className='mx-auto max-w-3xl space-y-6'>
         <h2 className='text-center text-3xl font-semibold text-ink'>Frequently Asked Questions</h2>
         <div className='space-y-4'>
-          {[
-            {
-              q: 'Is OldFont.net free to use?',
-              a: 'Yes! All font generators are completely free and run directly in your browser.'
-            },
-            {
-              q: 'Can I copy and paste the results?',
-              a: 'Absolutely. Use the Copy Text button for plaintext or Copy HTML to preserve styling. Works everywhere—social media, websites, and design tools.'
-            },
-            {
-              q: 'Do I need to download fonts?',
-              a: 'No downloads needed. All fonts load from the web, so you can start creating immediately.'
-            }
-          ].map((faq, i) => (
+          {faqs.map((faq, i) => (
             <div key={i} className='rounded-lg border border-brass/20 bg-white p-6 shadow-sm'>
-              <h3 className='font-semibold text-ink'>{faq.q}</h3>
-              <p className='mt-2 text-gray-700'>{faq.a}</p>
+              <h3 className='font-semibold text-ink'>{faq.question}</h3>
+              <p className='mt-2 text-gray-700'>{faq.answer}</p>
             </div>
           ))}
         </div>

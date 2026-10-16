@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import FontGeneratorTool from '@/components/tools/FontGeneratorTool'
+import UnicodeTextTool from '@/components/tools/UnicodeTextTool'
 import { buildToolMetadata } from '@/lib/seo'
 import { applicationSchema, breadcrumbSchema } from '@/lib/schema'
 
@@ -48,13 +50,13 @@ export default function TypewriterFontGeneratorPage() {
   }
 
   return (
-    <main className='space-y-10 pb-16'>
+    <div className='space-y-10 pb-16'>
       <div className='space-y-4'>
         <p className='text-sm font-semibold uppercase tracking-wide text-brass'>{primaryKeyword}</p>
         <h1 className='text-3xl font-semibold text-ink'>Typewriter Font Generator – Retro Text Online</h1>
         <p className='text-lg text-gray-700'>
           Channel analog charm with this {primaryKeyword}. Preview vintage monospaced fonts, set your preferred size and
-          line height, and copy text or HTML for captions, newsletters, or nostalgic UI designs.
+          line height, and export PNG images for newsletters or nostalgic designs.
         </p>
       </div>
 
@@ -66,16 +68,24 @@ export default function TypewriterFontGeneratorPage() {
         defaultFontId='typewriter'
       />
 
+      <UnicodeTextTool heading='Copy &amp; paste typewriter text' defaultText='Typewriter Text 1942'
+        description='Unicode monospace letters and digits paste into bios, captions and chats like a typed note.'
+        styles={['monospace', 'small-caps']} />
+
+      <p className='text-gray-700'>
+        Want more 90s computer fonts like Courier New, Tahoma and pixel terminals? Try the{' '}
+        <Link href='/old-internet-font-generator' className='underline'>old internet font generator</Link>.
+      </p>
+
       <section className='prose prose-stone max-w-none space-y-6 text-gray-800'>
         <h2>How to Create Typewriter Text</h2>
         <p>
           Typewriter fonts mimic classic mechanical keyboards with uniform spacing and subtle ink irregularities. Use
-          this generator to test a few variations, then copy the output for social captions, blog headers, or retro app
-          interfaces. Increasing the line height improves readability for longer paragraphs, while smaller sizes with
+          this generator to test a few variations, then export a PNG for blog headers or retro design mockups. Increasing the line height improves readability for longer paragraphs, while smaller sizes with
           tight spacing feel authentic to vintage printouts.
         </p>
         <p>
-          Because everything runs in the browser, you can experiment freely without installing fonts. The Export PNG feature lets you download your design as a retro poster with custom background. The Copy HTML option preserves spacing for embeds on websites or newsletters.
+          Because everything runs in the browser, you can experiment freely without installing fonts. The Export PNG feature lets you download your design as a retro poster with custom background. Copied HTML requires the matching font stylesheet on the destination website.
         </p>
 
         <h2>Best Places to Use Typewriter Fonts</h2>
@@ -91,6 +101,6 @@ export default function TypewriterFontGeneratorPage() {
       </section>
 
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-    </main>
+    </div>
   )
 }

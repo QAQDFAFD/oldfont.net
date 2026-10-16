@@ -7,7 +7,7 @@ import Container from './Container'
 import { useTheme } from '@/components/providers/ThemeProvider'
 
 type NavLink = {
-  href: '/' | '/old-font-generator' | '/old-english-font-generator' | '/typewriter-font-generator' | '/free-old-fonts-download'
+  href: '/' | '/old-font-generator' | '/old-english-font-generator' | '/typewriter-font-generator' | '/old-internet-font-generator' | '/free-old-fonts-download'
   label: string
   featured?: boolean
 }
@@ -17,6 +17,7 @@ const navLinks: NavLink[] = [
   { href: '/old-font-generator', label: 'Old Font Generator', featured: true },
   { href: '/old-english-font-generator', label: 'Old English' },
   { href: '/typewriter-font-generator', label: 'Typewriter' },
+  { href: '/old-internet-font-generator', label: 'Old Internet' },
   { href: '/free-old-fonts-download', label: 'Download Fonts' }
 ]
 

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: '%s | OldFont.net'
   },
   description:
-    'Free online old font generator with 40+ fonts. Create old English, gothic, vintage, medieval, and typewriter text instantly. Export as PNG or copy HTML. The easiest old fonts online - simple, fast, no download required.',
+    'Free old font generator: copy & paste Old English and vintage text, or preview 50+ gothic, vintage, typewriter and old internet fonts and save a PNG. No sign-up.',
   keywords: [
     'old font generator',
     'old fonts online',
@@ -63,14 +63,14 @@ export const metadata: Metadata = {
     url: 'https://oldfont.net',
     title: 'OldFont.net – Free Old Font Generator & Old English Text Tools',
     description:
-      'Generate old English and vintage fonts online with 40+ font styles. Export as PNG images or copy HTML. Perfect for logos, social media, tattoos, and design projects.',
+      'Generate old English and vintage fonts online with 50+ font styles. Export as PNG images or copy HTML. Perfect for logos, social media, tattoos, and design projects.',
     siteName: 'OldFont.net',
     images: [
       {
         url: '/og/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'OldFont.net - Old Font Generator with 40+ Free Fonts'
+        alt: 'OldFont.net - Old Font Generator with 50+ Free Fonts'
       }
     ]
   },
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'OldFont.net – Free Old Font Generator',
     description:
-      'Create old English, gothic, vintage & typewriter fonts online. 40+ fonts, PNG export, instant preview. 100% free!',
+      'Create old English, gothic, vintage & typewriter fonts online. 50+ fonts, copy & paste text, PNG export, instant preview. 100% free!',
     images: ['/og/og-image.png'],
     creator: '@oldfontnet'
   },

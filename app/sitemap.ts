@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://oldfont.net'
-  const lastModified = new Date('2026-02-08')
+  const lastModified = new Date('2026-10-16')
 
   const routes = [
     {
@@ -23,6 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: '/typewriter-font-generator',
       priority: 0.95,
+      changeFrequency: 'weekly' as const
+    },
+    {
+      url: '/old-internet-font-generator',
+      priority: 0.9,
       changeFrequency: 'weekly' as const
     },
     {

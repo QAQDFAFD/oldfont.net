@@ -39,7 +39,10 @@ import {
   Eagle_Lake,
   Jim_Nightshade,
   Meddon,
-  Monsieur_La_Doulaise
+  Monsieur_La_Doulaise,
+  VT323,
+  Press_Start_2P,
+  Silkscreen
 } from 'next/font/google'
 import localFont from 'next/font/local'
 
@@ -303,6 +306,24 @@ export const monsieurLaDoulaiseFont = Monsieur_La_Doulaise({
   variable: '--font-monsieur-la-doulaise'
 })
 
+export const vt323Font = VT323({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-vt323'
+})
+
+export const pressStartFont = Press_Start_2P({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-press-start'
+})
+
+export const silkscreenFont = Silkscreen({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-silkscreen'
+})
+
 export type FontOption = {
   id: string
   label: string
@@ -350,7 +371,19 @@ export const fontOptions: FontOption[] = [
   { id: 'eagle-lake', label: 'Eagle Lake (Calligraphy)', fontFamily: 'var(--font-eagle-lake), cursive' },
   { id: 'jim-nightshade', label: 'Jim Nightshade (Script)', fontFamily: 'var(--font-jim-nightshade), cursive' },
   { id: 'meddon', label: 'Meddon (Script)', fontFamily: 'var(--font-meddon), cursive' },
-  { id: 'monsieur-la-doulaise', label: 'Monsieur La Doulaise', fontFamily: 'var(--font-monsieur-la-doulaise), cursive' }
+  { id: 'monsieur-la-doulaise', label: 'Monsieur La Doulaise', fontFamily: 'var(--font-monsieur-la-doulaise), cursive' },
+  { id: 'vt323', label: 'VT323 (Old Computer Terminal)', fontFamily: 'var(--font-vt323), monospace' },
+  { id: 'press-start', label: 'Press Start 2P (8-bit Pixel)', fontFamily: 'var(--font-press-start), monospace' },
+  { id: 'silkscreen', label: 'Silkscreen (Pixel Web)', fontFamily: 'var(--font-silkscreen), monospace' },
+  // System fonts: rendered from the visitor's device, like on the early web.
+  { id: 'times-new-roman', label: 'Times New Roman (System)', fontFamily: "'Times New Roman', Times, serif" },
+  { id: 'comic-sans', label: 'Comic Sans MS (System)', fontFamily: "'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', cursive" },
+  { id: 'courier-new', label: 'Courier New (System)', fontFamily: "'Courier New', Courier, monospace" },
+  { id: 'verdana', label: 'Verdana (System)', fontFamily: 'Verdana, Geneva, sans-serif' },
+  { id: 'tahoma', label: 'Tahoma (System)', fontFamily: 'Tahoma, Verdana, sans-serif' },
+  { id: 'georgia', label: 'Georgia (System)', fontFamily: 'Georgia, serif' },
+  { id: 'arial', label: 'Arial (System)', fontFamily: 'Arial, Helvetica, sans-serif' },
+  { id: 'impact', label: 'Impact (System)', fontFamily: "Impact, 'Arial Black', sans-serif" }
 ]
 
 export const fontVariables = [
@@ -395,5 +428,8 @@ export const fontVariables = [
   eagleLakeFont.variable,
   jimNightshadeFont.variable,
   meddonFont.variable,
-  monsieurLaDoulaiseFont.variable
+  monsieurLaDoulaiseFont.variable,
+  vt323Font.variable,
+  pressStartFont.variable,
+  silkscreenFont.variable
 ].join(' ')

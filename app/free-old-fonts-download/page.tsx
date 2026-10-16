@@ -26,9 +26,9 @@ const secondaryKeywords = [
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Free Antique Fonts Download – Gothic, Vintage, Medieval & Blackletter TTF/OTF',
+    title: 'Free Old Fonts Download – Old English, Gothic & Antique TTF',
     description:
-      'Download 40+ free antique fonts including old English, gothic, vintage, medieval, and blackletter styles. High-quality TTF & OTF files from Google Fonts. Perfect antique font generator for design, tattoos, logos, and print. No registration required, instant download.',
+      'Download 25+ free old fonts: Old English, blackletter, gothic, medieval and antique serif TTF files with license notes. Preview each font with your own text first. No sign-up.',
     url,
     keywords: [primaryKeyword, ...secondaryKeywords]
   })
@@ -303,7 +303,7 @@ const faqs = [
   },
   {
     question: 'What file formats are included?',
-    answer: 'We provide fonts in TTF (TrueType Font) and OTF (OpenType Font) formats, which work on Windows, Mac, and Linux systems.'
+    answer: 'Direct downloads are TTF (TrueType) files. Google Fonts downloads also contain TTF files. TTF works on Windows, Mac and Linux.'
   },
   {
     question: 'How do I install a font?',
@@ -318,7 +318,7 @@ const faqs = [
 export default function FreeFontsDownloadPage() {
   const downloadableFontsSchema = fontCollectionSchema({
     name: 'Free Old Fonts Download',
-    description: 'Download 40+ free old English, gothic, vintage, medieval, and blackletter fonts in TTF and OTF formats.',
+    description: 'Download 25+ free old English, gothic, vintage, medieval, and blackletter fonts as TTF files or from Google Fonts.',
     url,
     items: downloadableFonts.map(font => ({
       name: font.name,
@@ -360,15 +360,18 @@ export default function FreeFontsDownloadPage() {
   }
 
   return (
-    <main className='space-y-12 pb-16'>
+    <div className='space-y-12 pb-16'>
       {/* Hero Section */}
       <section className='space-y-4'>
         <p className='text-sm font-semibold uppercase tracking-wide text-brass'>{primaryKeyword}</p>
         <h1 className='text-3xl font-semibold text-ink md:text-4xl'>
-          Free Old Fonts Download – Gothic, Vintage & Blackletter
+          Free Old Fonts Download – Old English, Gothic &amp; Antique
         </h1>
         <p className='max-w-3xl text-lg text-gray-700'>
-          Download high-quality old English, gothic, and vintage fonts for free. All fonts are ready to install on Windows, Mac, and Linux. Perfect for logos, tattoos, invitations, and creative projects.
+          Download free old English, blackletter, gothic and antique fonts, with the license for each one. All fonts install on Windows, Mac,
+          and Linux. Want to try a font before installing it? Type your text in the{' '}
+          <a href='/old-font-generator' className='font-semibold underline underline-offset-4'>old font generator</a> or copy ready-made{' '}
+          <a href='/old-english-font-generator' className='font-semibold underline underline-offset-4'>Old English text</a>.
         </p>
       </section>
 
@@ -617,6 +620,6 @@ export default function FreeFontsDownloadPage() {
       </section>
 
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-    </main>
+    </div>
   )
 }

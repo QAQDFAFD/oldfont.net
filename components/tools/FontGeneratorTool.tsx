@@ -1,12 +1,11 @@
 'use client'
 
-import { useCallback, useMemo, useRef, useState } from 'react'
-import { toPng } from 'html-to-image'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import FontPreview from './FontPreview'
 import FontControls from './FontControls'
 import { fontOptions } from '@/lib/fonts'
 import type { FontOption } from '@/lib/fonts'
-import { clamp, escapeHtml, sanitizeHexColor } from '@/lib/sanitize'
+import { clamp, escapeHtml, getExportTextColor, sanitizeHexColor } from '@/lib/sanitize'
 
 export type FontGeneratorToolProps = {
   pageTitle: string
@@ -32,6 +31,7 @@ export default function FontGeneratorTool({
   )
   const [isExporting, setIsExporting] = useState(false)
   const [copySuccess, setCopySuccess] = useState(false)
+  const [isCopying, setIsCopying] = useState(false)
   const previewRef = useRef<HTMLDivElement>(null)
 
   // 过滤字体选项（如果指定了允许的字体列表）
@@ -69,32 +69,47 @@ export default function FontGeneratorTool({
     [exportBackgroundColor]
   )
 
-  const copyHtml = useCallback(() => {
-    const escapedText = escapeHtml(text)
-    const html = `<span style="font-family: ${selectedFont.fontFamily}; font-size: ${safeFontSize}px; line-height: ${safeLineHeight}; background-color: ${safeExportBackgroundColor}; padding: ${safeExportPadding}px;">${escapedText}</span>`
-    navigator.clipboard.writeText(html).catch(error => {
+  useEffect(() => {
+    setCopySuccess(false)
+  }, [text, fontId, safeFontSize, safeLineHeight, safeExportBackgroundColor, safeExportPadding])
+
+  useEffect(() => {
+    if (!copySuccess) return
+    const timer = window.setTimeout(() => setCopySuccess(false), 2000)
+    return () => window.clearTimeout(timer)
+  }, [copySuccess])
+
+  const copyHtml = useCallback(async () => {
+    setIsCopying(true)
+    setCopySuccess(false)
+    try {
+      const fontFamily = previewRef.current
+        ? getComputedStyle(previewRef.current).fontFamily
+        : selectedFont.fontFamily
+      const html = `<span style="font-family: ${escapeHtml(fontFamily)}; font-size: ${safeFontSize}px; line-height: ${safeLineHeight}; white-space: pre-wrap; color: ${getExportTextColor(safeExportBackgroundColor)}; background-color: ${safeExportBackgroundColor}; padding: ${safeExportPadding}px;">${escapeHtml(text)}</span>`
+      await navigator.clipboard.writeText(html)
+      setCopySuccess(true)
+    } catch (error) {
       console.error('Failed to copy HTML:', error)
-      alert('Failed to copy HTML. Please try again.')
-    })
-  }, [
-    selectedFont.fontFamily,
-    safeFontSize,
-    safeLineHeight,
-    safeExportBackgroundColor,
-    safeExportPadding,
-    text
-  ])
+      alert('Could not copy HTML. Please allow clipboard access and try again.')
+    } finally {
+      setIsCopying(false)
+    }
+  }, [selectedFont.fontFamily, safeFontSize, safeLineHeight, safeExportBackgroundColor, safeExportPadding, text])
 
   const exportToPng = useCallback(async () => {
     if (!previewRef.current) return
 
     setIsExporting(true)
     try {
+      const { toPng } = await import('html-to-image')
+      await document.fonts.ready
       const dataUrl = await toPng(previewRef.current, {
         cacheBust: true,
         backgroundColor: safeExportBackgroundColor,
         pixelRatio: 2,
         style: {
+          color: getExportTextColor(safeExportBackgroundColor),
           padding: `${safeExportPadding}px`
         }
       })
@@ -106,7 +121,7 @@ export default function FontGeneratorTool({
       link.click()
     } catch (error) {
       console.error('Failed to export PNG:', error)
-      alert('导出失败，请重试')
+      alert('Export failed. Please try again.')
     } finally {
       setIsExporting(false)
     }
@@ -128,7 +143,7 @@ export default function FontGeneratorTool({
         exportPadding={exportPadding}
         setExportPadding={setExportPadding}
         copySuccess={copySuccess}
-        setCopySuccess={setCopySuccess}
+        isCopying={isCopying}
         primaryKeyword={primaryKeyword}
         secondaryKeywords={secondaryKeywords}
         pageTitle={pageTitle}
