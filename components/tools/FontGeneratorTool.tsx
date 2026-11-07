@@ -3,8 +3,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import FontPreview from './FontPreview'
 import FontControls from './FontControls'
+import { trackFontEvent } from '@/lib/analytics'
 import { fontOptions } from '@/lib/fonts'
 import type { FontOption } from '@/lib/fonts'
+import { MAX_UNICODE_TEXT_LENGTH } from '@/lib/unicode-fonts'
 import { clamp, escapeHtml, getExportTextColor, sanitizeHexColor } from '@/lib/sanitize'
 
 export type FontGeneratorToolProps = {
@@ -14,6 +16,7 @@ export type FontGeneratorToolProps = {
   secondaryKeywords?: string[]
   defaultFontId?: string
   allowedFontIds?: string[]
+  sharedText?: { value: string; onChange: (text: string) => void }
 }
 
 const DEFAULT_EXPORT_BG_COLOR = '#f7f4eb'
@@ -24,11 +27,14 @@ export default function FontGeneratorTool({
   primaryKeyword,
   secondaryKeywords,
   defaultFontId,
-  allowedFontIds
+  allowedFontIds,
+  sharedText
 }: FontGeneratorToolProps) {
-  const [text, setText] = useState(
+  const [localText, setLocalText] = useState(
     'OldFont.net makes it simple to style your words in vintage, gothic, and typewriter fonts.'
   )
+  const text = sharedText?.value ?? localText
+  const setText = sharedText?.onChange ?? setLocalText
   const [isExporting, setIsExporting] = useState(false)
   const [copySuccess, setCopySuccess] = useState(false)
   const [isCopying, setIsCopying] = useState(false)
@@ -114,11 +120,14 @@ export default function FontGeneratorTool({
         }
       })
 
+      if (!dataUrl.startsWith('data:image/png')) throw new Error('No PNG was generated')
+
       // 创建下载链接
       const link = document.createElement('a')
       link.download = `oldfont-${selectedFont.id}-${Date.now()}.png`
       link.href = dataUrl
       link.click()
+      trackFontEvent('export_png_success', selectedFont.id, 'png')
     } catch (error) {
       console.error('Failed to export PNG:', error)
       alert('Export failed. Please try again.')
@@ -132,6 +141,7 @@ export default function FontGeneratorTool({
       <FontControls
         text={text}
         setText={setText}
+        maxTextLength={sharedText ? MAX_UNICODE_TEXT_LENGTH : undefined}
         fontId={fontId}
         setFontId={setFontId}
         fontSize={fontSize}

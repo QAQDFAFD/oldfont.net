@@ -7,7 +7,8 @@ import Textarea from '@/components/ui/Textarea'
 
 export type FontControlsProps = {
   text: string
-  setText: Dispatch<SetStateAction<string>>
+  setText: (text: string) => void
+  maxTextLength?: number
   fontId: string
   setFontId: Dispatch<SetStateAction<string>>
   fontSize: number
@@ -34,6 +35,7 @@ export type FontControlsProps = {
 export default function FontControls({
   text,
   setText,
+  maxTextLength,
   fontId,
   setFontId,
   fontSize,
@@ -95,6 +97,7 @@ export default function FontControls({
             id='text-input'
             aria-label={`${primaryKeyword} input`}
             value={text}
+            maxLength={maxTextLength}
             onChange={event => setText(event.target.value)}
             rows={3}
             className='text-base'

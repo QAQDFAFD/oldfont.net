@@ -1,3 +1,5 @@
+export const MAX_UNICODE_TEXT_LENGTH = 2000
+
 export type UnicodeFontStyle = 'fraktur' | 'bold-fraktur' | 'script' | 'bold-script' | 'monospace' | 'small-caps'
 
 export const unicodeFontStyles: { id: UnicodeFontStyle; label: string }[] = [

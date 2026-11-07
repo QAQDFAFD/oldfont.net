@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import UnicodeTextTool from '@/components/tools/UnicodeTextTool'
-import FontGeneratorTool from '@/components/tools/FontGeneratorTool'
+import HomeFontTools from '@/components/tools/HomeFontTools'
 import { breadcrumbSchema, organizationSchema, websiteSchema, faqSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
@@ -50,12 +49,6 @@ export const metadata: Metadata = {
   }
 }
 
-const heroCta = [
-  { href: '/old-font-generator', label: 'Use Old Font Generator' },
-  { href: '/old-english-font-generator', label: 'Old English Generator' },
-  { href: '/old-internet-font-generator', label: 'Old Internet Fonts' }
-]
-
 const faqs = [
   {
     question: 'Is OldFont.net free to use?',
@@ -99,29 +92,17 @@ export default function HomePage() {
 
   return (
     <div className='space-y-16 pb-16'>
-      {/* Hero Section */}
-      <section className='space-y-6 text-center'>
-        <p className='text-sm font-semibold uppercase tracking-wide text-brass'>Vintage typography made easy</p>
-        <h1 className='font-gothic text-4xl font-semibold leading-tight text-ink md:text-5xl lg:text-6xl'>
-          Old Font Generator – Old English &amp; Vintage Text
-        </h1>
-        <p className='font-display mx-auto max-w-2xl text-lg text-gray-700 md:text-xl italic'>
-          Type once to copy &amp; paste Old English, old letter script and typewriter text — or preview 50+ real gothic, vintage and
-          old internet fonts and save a PNG. Free, no account required.
-        </p>
-        <div className='flex flex-wrap justify-center gap-4'>
-          {heroCta.map(cta => (
-            <a
-              key={cta.href}
-              className='font-medieval rounded-lg bg-brass px-6 py-3 text-base font-semibold text-white shadow-soft transition hover:bg-brass/90 hover:shadow-lg'
-              href={cta.href}>
-              {cta.label}
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <UnicodeTextTool />
+      <div className='space-y-5 pt-5 sm:space-y-8 sm:pt-8'>
+        <section className='space-y-2 text-center'>
+          <h1 className='font-gothic text-3xl font-semibold leading-tight text-ink md:text-5xl'>
+            Old Font Generator – Old English &amp; Vintage Text
+          </h1>
+          <p className='mx-auto max-w-2xl text-sm text-gray-700 sm:text-base'>
+            Type your text, copy your favorite Old English style, or preview 50+ vintage fonts and save a PNG.
+          </p>
+        </section>
+        <HomeFontTools />
+      </div>
 
       {/* Features Grid */}
       <section className='grid gap-6 md:grid-cols-3'>
@@ -241,27 +222,6 @@ export default function HomePage() {
               <p className='mt-2 text-sm text-gray-700'>{tool.desc}</p>
             </a>
           ))}
-        </div>
-      </section>
-
-      {/* Live Demo Section */}
-      <section className='space-y-6'>
-        <div className='text-center'>
-          <h2 className='font-typewriter text-3xl font-semibold text-ink'>Create a font image</h2>
-          <p className='font-display mt-2 text-gray-600 italic'>Choose a real font and export a PNG for your design</p>
-        </div>
-        <div className='rounded-xl border-2 border-brass/20 bg-white p-4 shadow-lg'>
-          <FontGeneratorTool
-            pageTitle='Font image maker'
-            pageDescription='Preview real fonts and export your lettering as a PNG image.'
-            primaryKeyword='old font generator'
-            secondaryKeywords={[
-              'retro font generator',
-              'vintage text generator',
-              'monospace font generator'
-            ]}
-            defaultFontId='unifraktur'
-          />
         </div>
       </section>
 

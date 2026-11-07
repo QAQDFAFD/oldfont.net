@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import SiteHeader from '@/components/layout/SiteHeader'
 import SiteFooter from '@/components/layout/SiteFooter'
 import Container from '@/components/layout/Container'
-import AnalyticsPlaceholder from '@/components/layout/AnalyticsPlaceholder'
+import GoogleAnalytics from '@/components/layout/GoogleAnalytics'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://oldfont.net'),
@@ -115,7 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Container>{children}</Container>
           </main>
           <SiteFooter />
-          <AnalyticsPlaceholder />
+          <GoogleAnalytics />
         </ThemeProvider>
       </body>
     </html>
