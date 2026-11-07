@@ -14,7 +14,7 @@ describe('Unicode clipboard interaction', () => {
     clipboard(write)
     render(<UnicodeTextTool />)
     fireEvent.change(screen.getByLabelText('Your text'), { target: { value: 'Hi 中文' } })
-    fireEvent.click(screen.getByRole('button', { name: 'Copy Old English', exact: true }))
+    fireEvent.click(screen.getByRole('button', { name: 'Copy Old English' }))
     await waitFor(() => expect(screen.getByRole('status').textContent).toContain('copied'))
     expect(write).toHaveBeenCalledWith('ℌ𝔦 中文')
   })
@@ -32,7 +32,7 @@ describe('Unicode clipboard interaction', () => {
     let resolve!: () => void
     clipboard(vi.fn(() => new Promise<void>(done => { resolve = done })))
     render(<UnicodeTextTool />)
-    fireEvent.click(screen.getByRole('button', { name: 'Copy Old English', exact: true }))
+    fireEvent.click(screen.getByRole('button', { name: 'Copy Old English' }))
     fireEvent.change(screen.getByLabelText('Your text'), { target: { value: 'New text' } })
     await act(async () => resolve())
     expect(screen.getByRole('status').textContent).toBe('')
@@ -40,6 +40,6 @@ describe('Unicode clipboard interaction', () => {
   it('disables copying whitespace-only input', () => {
     render(<UnicodeTextTool />)
     fireEvent.change(screen.getByLabelText('Your text'), { target: { value: '  \n' } })
-    expect((screen.getByRole('button', { name: 'Copy Old English', exact: true }) as HTMLButtonElement).disabled).toBe(true)
+    expect((screen.getByRole('button', { name: 'Copy Old English' }) as HTMLButtonElement).disabled).toBe(true)
   })
 })

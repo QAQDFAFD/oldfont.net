@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import FontDownloadLink from '@/components/tools/FontDownloadLink'
 import { buildToolMetadata } from '@/lib/seo'
 import { breadcrumbSchema, faqSchema, fontCollectionSchema, howToSchema } from '@/lib/schema'
 
@@ -433,7 +434,9 @@ export default function FreeFontsDownloadPage() {
 
                 {/* Download Button */}
                 <div className='flex-shrink-0'>
-                  <a
+                  <FontDownloadLink
+                    fontId={font.id}
+                    source='ttf'
                     href={`/fonts/${font.fileName}`}
                     download={font.fileName}
                     className='inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brass to-amber-600 px-6 py-3 font-semibold text-white shadow-lg transition-all hover:from-brass/90 hover:to-amber-500 hover:shadow-xl active:scale-95'
@@ -442,7 +445,7 @@ export default function FreeFontsDownloadPage() {
                       <path strokeLinecap='round' strokeLinejoin='round' d='M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3' />
                     </svg>
                     Download {font.format}
-                  </a>
+                  </FontDownloadLink>
                 </div>
               </div>
             </div>
@@ -504,7 +507,9 @@ export default function FreeFontsDownloadPage() {
 
                 {/* Google Fonts Button */}
                 <div className='flex-shrink-0'>
-                  <a
+                  <FontDownloadLink
+                    fontId={font.id}
+                    source='google_fonts'
                     href={font.googleUrl}
                     target='_blank'
                     rel='noopener noreferrer'
@@ -514,7 +519,7 @@ export default function FreeFontsDownloadPage() {
                       <path d='M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z' />
                     </svg>
                     Get on Google Fonts
-                  </a>
+                  </FontDownloadLink>
                 </div>
               </div>
             </div>
