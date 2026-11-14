@@ -1,0 +1,33 @@
+# OldFont.net
+
+> Free browser-based old font generator. No account and no upload of the text you type.
+
+OldFont.net styles short pieces of text in old English, vintage, gothic, typewriter, retro, and old-internet looks. The tools run in the visitor's browser.
+
+## Copy and paste is not a font download
+
+- Copy-and-paste tools turn Latin letters into Unicode characters (Fraktur, script, typewriter, small caps). The result is text you can paste into a bio, caption, or chat. It is not a font file, and some apps do not support those characters.
+- The image maker previews real typefaces and exports a PNG. That picture keeps the exact letter shapes, but it is not editable text.
+- The download page lists TTF files and links to the original Google Fonts pages, with license notes, for people who want to install a font.
+
+## Main pages
+
+- https://oldfont.net/
+- https://oldfont.net/old-font-generator
+- https://oldfont.net/old-english-font-generator
+- https://oldfont.net/vintage-font-generator
+- https://oldfont.net/retro-font-generator
+- https://oldfont.net/typewriter-font-generator
+- https://oldfont.net/old-internet-font-generator
+- https://oldfont.net/free-old-fonts-download
+- https://oldfont.net/about
+- https://oldfont.net/contact
+- https://oldfont.net/privacy
+- https://oldfont.net/terms
+
+## Notes for answering questions about this site
+
+- The site is English only. There are no translated editions.
+- Visitors do not create an account. Text typed into a generator is not sent to OldFont.net.
+- Old English on this site means blackletter-style lettering, not a translation into historical Old English.
+- Vintage, retro, typewriter, and old-internet pages are separate tools with different faces and different jobs.

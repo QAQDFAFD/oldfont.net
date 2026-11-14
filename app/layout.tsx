@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://oldfont.net',
+    url: 'https://oldfont.net/',
     title: 'OldFont.net – Free Old Font Generator & Old English Text Tools',
     description:
       'Generate old English and vintage fonts online with 50+ font styles. Export as PNG images or copy HTML. Perfect for logos, social media, tattoos, and design projects.',
@@ -79,19 +79,7 @@ export const metadata: Metadata = {
     title: 'OldFont.net – Free Old Font Generator',
     description:
       'Create old English, gothic, vintage & typewriter fonts online. 50+ fonts, copy & paste text, PNG export, instant preview. 100% free!',
-    images: ['/og/og-image.png'],
-    creator: '@oldfontnet'
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1
-    }
+    images: ['/og/og-image.png']
   },
   verification: {
     // google: "your-google-verification-code",

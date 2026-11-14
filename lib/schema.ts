@@ -1,10 +1,12 @@
+import { HOME_URL, SITE_ORIGIN } from "@/lib/site";
+
 export type JsonLd = Record<string, unknown>;
 
 export const websiteSchema = (): JsonLd => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "OldFont.net",
-  url: "https://oldfont.net",
+  url: HOME_URL,
   description:
     "Free online old font generator with 50+ fonts including old English, vintage, gothic, medieval, and typewriter styles. Type, preview, copy or download instantly.",
   inLanguage: "en"
@@ -14,16 +16,14 @@ export const organizationSchema = (): JsonLd => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "OldFont.net",
-  url: "https://oldfont.net",
+  url: HOME_URL,
   description:
     "Free online font generator platform offering 50+ old English, gothic, vintage, medieval, and typewriter fonts for designers, creators, and enthusiasts.",
-  logo: "https://oldfont.net/og/og-image.png",
-  sameAs: [
-    "https://oldfont.net",
-  ],
+  logo: `${SITE_ORIGIN}/og/og-image.png`,
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
+    url: `${SITE_ORIGIN}/contact`,
     areaServed: "Worldwide",
     availableLanguage: "English"
   }
@@ -92,7 +92,7 @@ export const softwareAppSchema = (config: {
   author: {
     "@type": "Organization",
     name: "OldFont.net",
-    url: "https://oldfont.net"
+    url: HOME_URL
   }
 });
 

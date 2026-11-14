@@ -29,8 +29,8 @@ const faqs = [
 ]
 
 export const generateMetadata = (): Metadata => buildToolMetadata({
-  title: 'Old Internet Font Generator – 90s & Y2K Web Fonts',
-  description: 'Type in classic old internet fonts: Comic Sans, Times New Roman, Tahoma, Verdana and pixel computer fonts. Copy retro typewriter text or save a PNG. Free, no sign-up.',
+  title: 'Old Internet Font Generator – Copy & Paste 90s Text (Free)',
+  description: 'Free old internet font generator to copy and paste Comic Sans, Times New Roman, Tahoma, Verdana and pixel text for a 90s homepage or chat name. Save a PNG. No sign-up.',
   url
 })
 
@@ -45,9 +45,9 @@ export default function OldInternetFontGeneratorPage() {
     <div className='space-y-8 pb-16'>
       <header className='space-y-3'>
         <nav aria-label='Breadcrumb' className='text-sm text-gray-600'><Link href='/' className='underline'>Home</Link> / Old Internet Font Generator</nav>
-        <h1 className='text-3xl font-semibold text-ink sm:text-4xl'>Old Internet Font Generator</h1>
+        <h1 className='text-3xl font-semibold text-ink sm:text-4xl'>Old Internet Font Generator – Copy &amp; Paste 90s Text (Free)</h1>
         <p className='max-w-3xl text-lg text-gray-700'>
-          Bring back the look of 90s homepages, Windows XP chat windows and DOS screens. Preview your words in classic web fonts and
+          Free old internet font generator to copy and paste. Bring back the look of 90s homepages, Windows XP chat windows and DOS screens. Preview your words in classic web fonts and
           pixel computer fonts, then save a PNG — or copy retro Unicode text for your bio.
         </p>
       </header>
@@ -83,6 +83,8 @@ export default function OldInternetFontGeneratorPage() {
         <Link href='/typewriter-font-generator'>Typewriter font generator</Link>
         <Link href='/old-english-font-generator'>Old English text generator</Link>
         <Link href='/old-font-generator'>Vintage font generator</Link>
+        <Link href='/vintage-font-generator'>Vintage copy and paste text</Link>
+        <Link href='/retro-font-generator'>Retro font generator</Link>
       </nav>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </div>
