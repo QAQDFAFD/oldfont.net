@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import HomeFontTools from '@/components/tools/HomeFontTools'
-import { breadcrumbSchema, organizationSchema, websiteSchema, faqSchema } from '@/lib/schema'
+import { indexableRobots } from '@/lib/seo'
+import { applicationSchema, breadcrumbSchema, organizationSchema, websiteSchema, faqSchema } from '@/lib/schema'
+import { HOME_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: { absolute: 'Old Font Generator – Old English Text Copy & Paste + 50 Vintage Fonts' },
@@ -40,12 +42,24 @@ export const metadata: Metadata = {
     'text poster generator'
   ],
   alternates: {
-    canonical: 'https://oldfont.net'
+    canonical: HOME_URL
   },
+  robots: indexableRobots,
   openGraph: {
-    url: 'https://oldfont.net',
+    type: 'website',
+    url: HOME_URL,
+    siteName: 'OldFont.net',
+    locale: 'en_US',
     title: 'Old Font Generator – Old English Text Copy & Paste',
-    description: 'Copy & paste Old English and vintage text, or preview 50+ old fonts and save a PNG. Free, no sign-up.'
+    description: 'Copy & paste Old English and vintage text, or preview 50+ old fonts and save a PNG. Free, no sign-up.',
+    images: [
+      {
+        url: '/og/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'OldFont.net - Old Font Generator with 50+ Free Fonts'
+      }
+    ]
   }
 }
 
@@ -85,7 +99,21 @@ export default function HomePage() {
     '@graph': [
       websiteSchema(),
       organizationSchema(),
-      breadcrumbSchema([{ name: 'Home', url: 'https://oldfont.net/' }]),
+      {
+        ...applicationSchema({
+          name: 'OldFont.net',
+          url: HOME_URL,
+          description:
+            'Free old font generator: type once to copy & paste Old English, old letter script and typewriter text, or preview 50+ gothic, vintage and old internet fonts and save a PNG. No sign-up.'
+        }),
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD'
+        },
+        isAccessibleForFree: true
+      },
+      breadcrumbSchema([{ name: 'Home', url: HOME_URL }]),
       faqSchema(faqs)
     ]
   }

@@ -46,36 +46,43 @@ import {
 } from 'next/font/google'
 import localFont from 'next/font/local'
 
+// Preload only the face used for body text. Other faces load when a preview applies them.
 export const bodyFont = Inter({
   subsets: ['latin'],
-  variable: '--font-body'
+  variable: '--font-body',
+  preload: true
 })
 
 export const displayFont = Cormorant_Garamond({
+  preload: false,
   subsets: ['latin'],
   weight: ['500', '600', '700'],
   variable: '--font-display'
 })
 
 export const gothicFont = Cinzel_Decorative({
+  preload: false,
   subsets: ['latin'],
   weight: ['400', '700', '900'],
   variable: '--font-gothic'
 })
 
 export const blackletterFont = UnifrakturCook({
+  preload: false,
   subsets: ['latin'],
   weight: '700',
   variable: '--font-blackletter'
 })
 
 export const typewriterFont = Special_Elite({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-typewriter'
 })
 
 export const oldEnglishishFont = localFont({
+  preload: false,
   src: '../public/fonts/OldEnglishish-Regular.ttf',
   variable: '--font-old-englishish',
   fallback: ['serif'],
@@ -83,6 +90,7 @@ export const oldEnglishishFont = localFont({
 })
 
 export const unifrakturMaguntiaFont = localFont({
+  preload: false,
   src: '../public/fonts/OldEnglish-Charset-UnifrakturMaguntia.ttf',
   variable: '--font-unifraktur-maguntia',
   fallback: ['cursive'],
@@ -90,18 +98,21 @@ export const unifrakturMaguntiaFont = localFont({
 })
 
 export const medievalFont = MedievalSharp({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-medieval'
 })
 
 export const pirataFont = Pirata_One({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-pirata'
 })
 
 export const fellEnglishFont = IM_Fell_DW_Pica({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-fell',
@@ -109,216 +120,252 @@ export const fellEnglishFont = IM_Fell_DW_Pica({
 })
 
 export const almendraFont = Almendra_SC({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-almendra'
 })
 
 export const almendraRegularFont = Almendra({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-almendra-regular'
 })
 
 export const almendraDisplayFont = Almendra_Display({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-almendra-display'
 })
 
 export const cormorantUnicaseFont = Cormorant_Unicase({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-cormorant-unicase'
 })
 
 export const cinzelFont = Cinzel({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-cinzel'
 })
 
 export const unifrakturMaguntiaGoogleFont = UnifrakturMaguntia({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-unifraktur-maguntia-google'
 })
 
 export const texturinaFont = Texturina({
+  preload: false,
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-texturina'
 })
 
 export const uncialAntiquaFont = Uncial_Antiqua({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-uncial-antiqua'
 })
 
 export const inknutAntiquaFont = Inknut_Antiqua({
+  preload: false,
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-inknut-antiqua'
 })
 
 export const grenzeFont = Grenze({
+  preload: false,
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-grenze'
 })
 
 export const grenzeGotischFont = Grenze_Gotisch({
+  preload: false,
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-grenze-gotisch'
 })
 
 export const astlochFont = Astloch({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-astloch'
 })
 
 export const bokorFont = Bokor({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-bokor'
 })
 
 export const germaniaOneFont = Germania_One({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-germania-one'
 })
 
 export const metamorphousFont = Metamorphous({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-metamorphous'
 })
 
 export const ryeFont = Rye({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-rye'
 })
 
 export const sancreekFont = Sancreek({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-sancreek'
 })
 
 export const abrilFatfaceFont = Abril_Fatface({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-abril-fatface'
 })
 
 export const crimsonTextFont = Crimson_Text({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-crimson-text'
 })
 
 export const ebGaramondFont = EB_Garamond({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-eb-garamond'
 })
 
 export const libreBaskervilleFont = Libre_Baskerville({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-libre-baskerville'
 })
 
 export const merriweatherFont = Merriweather({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-merriweather'
 })
 
 export const playfairDisplayFont = Playfair_Display({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-playfair-display'
 })
 
 export const arvoFont = Arvo({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-arvo'
 })
 
 export const loraFont = Lora({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-lora'
 })
 
 export const rokkittFont = Rokkitt({
+  preload: false,
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-rokkitt'
 })
 
 export const josefinSlabFont = Josefin_Slab({
+  preload: false,
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-josefin-slab'
 })
 
 export const cardoFont = Cardo({
+  preload: false,
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-cardo'
 })
 
 export const vollkornFont = Vollkorn({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-vollkorn'
 })
 
 export const eagleLakeFont = Eagle_Lake({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-eagle-lake'
 })
 
 export const jimNightshadeFont = Jim_Nightshade({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-jim-nightshade'
 })
 
 export const meddonFont = Meddon({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-meddon'
 })
 
 export const monsieurLaDoulaiseFont = Monsieur_La_Doulaise({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-monsieur-la-doulaise'
 })
 
 export const vt323Font = VT323({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-vt323'
 })
 
 export const pressStartFont = Press_Start_2P({
+  preload: false,
   subsets: ['latin'],
   weight: '400',
   variable: '--font-press-start'
 })
 
 export const silkscreenFont = Silkscreen({
+  preload: false,
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-silkscreen'

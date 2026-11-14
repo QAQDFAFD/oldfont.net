@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
 
+export const indexableRobots: Metadata["robots"] = {
+  index: true,
+  follow: true,
+  googleBot: {
+    index: true,
+    follow: true,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+  },
+};
+
 export type ToolSeoConfig = {
   title: string;
   description: string;
@@ -42,19 +54,8 @@ export function buildToolMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
-      creator: "@oldfontnet"
+      images: [ogImage]
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
+    robots: indexableRobots,
   };
 }

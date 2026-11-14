@@ -25,9 +25,9 @@ const secondaryKeywords = [
 
 export const generateMetadata = (): Metadata =>
   buildToolMetadata({
-    title: 'Typewriter Font Generator – Retro Monospace Text + Poster Maker Online',
+    title: 'Typewriter Font Generator – Copy & Paste Text (Free)',
     description:
-      'Free typewriter font generator with authentic vintage monospaced fonts. Create nostalgic retro text instantly. Type, preview, adjust spacing, background, then copy HTML or export as PNG poster. Perfect for retro designs, code-inspired branding, and vintage aesthetics.',
+      'Free typewriter font generator to copy and paste retro monospace text. Adjust spacing and background, copy HTML, or export a PNG poster for newsletters, code-inspired branding, and vintage designs.',
     url,
     keywords: [primaryKeyword, ...secondaryKeywords]
   })
@@ -53,9 +53,9 @@ export default function TypewriterFontGeneratorPage() {
     <div className='space-y-10 pb-16'>
       <div className='space-y-4'>
         <p className='text-sm font-semibold uppercase tracking-wide text-brass'>{primaryKeyword}</p>
-        <h1 className='text-3xl font-semibold text-ink'>Typewriter Font Generator – Retro Text Online</h1>
+        <h1 className='text-3xl font-semibold text-ink'>Typewriter Font Generator – Copy &amp; Paste Text (Free)</h1>
         <p className='text-lg text-gray-700'>
-          Channel analog charm with this {primaryKeyword}. Preview vintage monospaced fonts, set your preferred size and
+          Channel analog charm with this free {primaryKeyword} for copy and paste. Preview vintage monospaced fonts, set your preferred size and
           line height, and export PNG images for newsletters or nostalgic designs.
         </p>
       </div>
@@ -75,6 +75,8 @@ export default function TypewriterFontGeneratorPage() {
       <p className='text-gray-700'>
         Want more 90s computer fonts like Courier New, Tahoma and pixel terminals? Try the{' '}
         <Link href='/old-internet-font-generator' className='underline'>old internet font generator</Link>.
+        For poster display faces, use the <Link href='/retro-font-generator' className='underline'>retro font generator</Link>.
+        For antique serifs, use the <Link href='/vintage-font-generator' className='underline'>vintage font generator</Link>.
       </p>
 
       <section className='prose prose-stone max-w-none space-y-6 text-gray-800'>

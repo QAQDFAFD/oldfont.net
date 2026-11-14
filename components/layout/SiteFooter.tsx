@@ -19,12 +19,20 @@ export default function SiteFooter() {
               <li><Link href="/old-english-font-generator" className="hover:text-brass dark:hover:text-amber-400">Old English Font Generator</Link></li>
               <li><Link href="/typewriter-font-generator" className="hover:text-brass dark:hover:text-amber-400">Typewriter Font Generator</Link></li>
               <li><Link href="/old-internet-font-generator" className="hover:text-brass dark:hover:text-amber-400">Old Internet Font Generator</Link></li>
+              <li><Link href="/vintage-font-generator" className="hover:text-brass dark:hover:text-amber-400">Vintage Font Generator</Link></li>
+              <li><Link href="/retro-font-generator" className="hover:text-brass dark:hover:text-amber-400">Retro Font Generator</Link></li>
               <li><Link href="/free-old-fonts-download" className="hover:text-brass dark:hover:text-amber-400">Free Old Fonts Download</Link></li>
             </ul>
           </div>
           <div>
             <p className="text-sm font-semibold text-ink dark:text-gray-100">About</p>
             <p className="mt-2 text-sm text-gray-700 dark:text-gray-400">Built for designers, creators, and anyone who loves vintage-inspired typography.</p>
+            <ul className="mt-2 space-y-2 text-sm text-gray-700 dark:text-gray-400">
+              <li><Link href="/about" className="hover:text-brass dark:hover:text-amber-400">About</Link></li>
+              <li><Link href="/contact" className="hover:text-brass dark:hover:text-amber-400">Contact</Link></li>
+              <li><Link href="/privacy" className="hover:text-brass dark:hover:text-amber-400">Privacy</Link></li>
+              <li><Link href="/terms" className="hover:text-brass dark:hover:text-amber-400">Terms</Link></li>
+            </ul>
           </div>
         </div>
         <div className="mt-8 text-xs text-gray-600 dark:text-gray-500">© {new Date().getFullYear()} OldFont.net. All rights reserved.</div>

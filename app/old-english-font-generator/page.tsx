@@ -15,8 +15,8 @@ const faqs = [
 ]
 
 export const generateMetadata = (): Metadata => buildToolMetadata({
-  title: 'Old English Font Generator – Copy & Paste',
-  description: 'Create Old English text to copy and paste in regular or bold Fraktur. Preview blackletter fonts and export PNG images for tattoos, logos and invitations.',
+  title: 'Old English Font Generator – Copy & Paste Text (Free)',
+  description: 'Free Old English font text generator to copy and paste regular or bold Fraktur. Preview blackletter fonts and export PNG images for tattoos, logos and invitations. No account required.',
   url
 })
 
@@ -31,8 +31,8 @@ export default function OldEnglishFontGeneratorPage() {
     <div className='space-y-8 pb-16'>
       <header className='space-y-3'>
         <nav aria-label='Breadcrumb' className='text-sm text-gray-600'><Link href='/' className='underline'>Home</Link> / Old English Font Generator</nav>
-        <h1 className='text-3xl font-semibold text-ink sm:text-4xl'>Old English Font Generator</h1>
-        <p className='max-w-3xl text-lg text-gray-700'>Create copyable gothic lettering for a nickname or bio, or make an image with a real blackletter font. Free to use, with no account required.</p>
+        <h1 className='text-3xl font-semibold text-ink sm:text-4xl'>Old English Font Generator – Copy &amp; Paste Text (Free)</h1>
+        <p className='max-w-3xl text-lg text-gray-700'>Free Old English font text generator to copy and paste. Create copyable gothic lettering for a nickname or bio, or make an image with a real blackletter font. Free to use, with no account required.</p>
         <a href='#image-maker' className='inline-block text-sm font-semibold text-ink underline underline-offset-4'>Need a tattoo, logo or invitation? Jump to the image maker ↓</a>
       </header>
       <UnicodeTextTool />
@@ -57,6 +57,8 @@ export default function OldEnglishFontGeneratorPage() {
       <nav aria-label='Related tools' className='flex flex-wrap gap-4 text-sm font-semibold text-ink underline underline-offset-4'>
         <Link href='/free-old-fonts-download'>Download fonts and check licenses</Link>
         <Link href='/old-font-generator'>Vintage font image maker</Link>
+        <Link href='/vintage-font-generator'>Vintage font generator</Link>
+        <Link href='/retro-font-generator'>Retro font generator</Link>
         <Link href='/typewriter-font-generator'>Typewriter font image maker</Link>
       </nav>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
